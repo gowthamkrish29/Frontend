@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: bisque;
+}
+
+h1 {
+    background-color: red;
+    color: bisque;
+    width: 100vh;
+}
+
+#zoho {
+    background-color: blue;
+    color: whitesmoke;
+    width: 100vh;
+}
+
+#tcs {
+    background-color: darkblue;
+    color: cyan;
+    width: 100vh;
+}
+
+#infosys {
+    background-color: darkolivegreen;
+    color: khaki;
+    width: 100vh;
+}
+
+.zoho {
+    color: black;
+}
+
+.tcs {
+    color: black;
+}
+
+.infosys {
+    color: black;
+}

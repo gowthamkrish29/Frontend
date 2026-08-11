@@ -1,0 +1,55 @@
+* {
+    margin: 0px;
+    padding: opx;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: black;
+}
+
+.header {
+    background-color: white;
+    color: black;
+    width: 100vh;
+    text-align: center;
+
+}
+
+#main-cse {
+    background-color: chartreuse;
+    color: black;
+    width: 100vh;
+    text-align: start;
+}
+
+#main-it {
+    background-color: darkorange;
+    color: black;
+    width: 100vh;
+    text-align: start;
+}
+
+#main-ece {
+    background-color: deeppink;
+    color: black;
+    width: 100vh;
+    text-align: start;
+}
+
+#main-eee {
+    background-color: cyan;
+    color: black;
+    width: 100vh;
+    text-align: start;
+}
+
+#main-mech {
+    background-color: navy;
+    color: white;
+    width: 100vh;
+    text-align: start;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paragraph Styling</title>
+
+    <style>
+        p {
+            font-size: 30px;
+            width: 600px; 
+        }
+
+        p::first-letter {
+            font-size: 50px;
+            color: darkblue;
+            font-weight: bold;
+        }
+
+        p::first-line {
+            color: green;
+            font-weight: bold;
+        }
+
+        ::selection {
+            background-color: red;
+            color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Heading</h1>
+
+    <p>
+        Artificial Intelligence is transforming the world by helping people
+        automate tasks, improve decision making, and create smart applications
+        used in many industries every day.
+    </p>
+
+    <p>
+        HTML provides the structure of a webpage, CSS is used to style the
+        webpage, and JavaScript adds interactivity to create modern web
+        applications.
+    </p>
+
+    <p>
+        Learning web development requires regular practice with HTML, CSS, and
+        JavaScript. Building small projects every day helps improve coding
+        skills and confidence.
+    </p>
+
+</body>
+</html>

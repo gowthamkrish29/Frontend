@@ -1,0 +1,50 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#header {
+    background-color: white;
+}
+
+.main {
+    background-color: red;
+    color: white;
+    text-align: center;
+    margin: 20px;
+    margin-top: 10px;
+    padding: 10px;
+    width: 100vh;
+}
+
+.image img {
+    width: 600px;
+    height: 400px;
+    margin: 20px;
+    padding-left: 50px;
+}
+
+.para-1 {
+    font-style: inherit;
+    font-size: 30px;
+}
+
+.para-2 {
+    font-style: inherit;
+    font-size: 30px;
+}
+
+.highlight {
+    background-color: orangered;
+}
+
+.author , .date {
+        text-align: center;
+        text-decoration-style: wavy;
+        color: olive;
+}

@@ -1,0 +1,56 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#watch {
+    width: 400px;
+    height:600px;
+    background-color: white;
+    border: outset 10px orange;
+    margin-top: 50PX;
+    margin-left: 60px;
+
+}
+
+.watch-image img {
+    width: 350px;
+    height: 200px;
+    padding-top: 30px;
+}
+
+.watch-name{
+    color: black;
+    padding-left: 9px;
+    padding-top: 10px;
+    font-size: x-large;
+    font-weight: lighter;
+}
+
+.watch-price {
+    padding-left: 5%;
+    padding-top: 30px;
+}
+
+.watch-des {
+    padding-top: 30px;
+    font-size: large;
+    padding-left: 2px;
+}
+
+.watch-buy button {
+    background-color: red;
+    color: black;
+    margin: 20px;
+    padding: 15px;
+    margin-left: 5%;
+}

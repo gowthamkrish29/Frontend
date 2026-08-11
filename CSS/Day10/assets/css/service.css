@@ -1,0 +1,140 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: white;
+}
+
+.company {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    width: 90%;
+    padding: 10px;
+    margin: 70px auto;
+}
+
+@media (max-width: 990px) {
+
+    .company {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .company > div {
+        background-color: green;
+    }
+
+    .company > div > h2 {
+        color: black;
+    }
+
+    .company > div > p {
+        color: bisque;
+        font-size: x-large;
+    }
+
+}
+
+@media (max-width:576px) {
+    .company {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+
+    .web,
+    .app,
+    .user,
+    .cloud,
+    .ai,
+    .digital {
+        background-color: blue;
+    }
+
+    .web > h2,
+    .app > h2,
+    .user > h2,
+    .cloud > h2,
+    .ai > h2,
+    .digital > h2 {
+        color: black;
+    }
+
+     .web > p,
+    .app > p,
+    .user > p,
+    .cloud > p,
+    .ai > p,
+    .digital > p {
+        color: bisque;
+        font-size: x-large;
+    }
+
+    }
+}
+
+.web {
+    background-color: red;
+    color: white;
+    width: 70%;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.app {
+    background-color: red;
+    color: white;
+    width: 70%;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.user {
+    background-color: red;
+    color: white;
+    width: 70%;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.cloud {
+    background-color: red;
+    color: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 70%;
+    text-align: center;
+
+}
+
+.ai {
+    background-color: red;
+    color: white;
+    width: 70%;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+
+}
+
+.digital {
+    background-color: red;
+    color: white;
+    width: 70%;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+
+}
+
+.company h2 {
+    margin-bottom: 30px;
+}

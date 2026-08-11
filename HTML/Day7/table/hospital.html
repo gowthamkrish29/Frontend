@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Patient Registration & Patient Report</title>
+</head>
+<body>
+    <center>
+        <header>
+            <section>
+                <h1>Hospital Patient Registration & Patient Report</h1>
+            </section>
+        </header>
+    </center>
+    <main>
+        <form>
+            <label for="patientid">Patient ID:</label><br>
+            <input type="number" id="patientid" placeholder="Enter Patient ID" required><br><br>
+            <label for="patientname">Patient Name:</label><br>
+            <input type="text" id="patientname" placeholder="Enter Patient Name" required><br><br>
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" placeholder="Enter Age" required><br><br>
+            <label>Gender:</label><br>
+            <input type="radio" name="gender"> Male
+            <input type="radio" name="gender"> Female
+            <input type="radio" name="gender"> Other
+            <br><br>
+            <label for="bloodgroup">Blood Group:</label><br>
+            <select id="bloodgroup">
+                <option>Select Blood Group</option>
+                <option>A+</option>
+                <option>A-</option>
+                <option>B+</option>
+                <option>B-</option>
+                <option>AB+</option>
+                <option>AB-</option>
+                <option>O+</option>
+                <option>O-</option>
+            </select>
+            <br><br>
+            <label for="doctor">Doctor:</label><br>
+            <input type="text" id="doctor" placeholder="Enter Doctor Name"><br><br>
+            <label for="appointment">Appointment Date:</label><br>
+            <input type="date" id="appointment"><br><br>
+            <label for="symptoms">Symptoms:</label><br>
+            <textarea id="symptoms" rows="4" cols="30"
+                placeholder="Enter Symptoms"></textarea><br><br>
+            <label for="report">Medical Report Upload:</label><br>
+            <input type="file" id="report"><br><br>
+            <input type="submit" value="Register">
+            <input type="reset" value="Clear">
+        </form>
+        <br><br>
+        <center>
+            <table border="2" bgcolor="lightgreen" cellpadding="30" cellspacing="2">
+                <thead>
+                    <tr>
+                        <th>Patient ID</th>
+                        <th>Patient Name</th>
+                        <th>Doctor</th>
+                        <th>Blood Group</th>
+                        <th>Appointment Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1001</td>
+                        <td>Gowtham Krishnan R</td>
+                        <td>Dr. Rajesh</td>
+                        <td>O+</td>
+                        <td>22-07-2026</td>
+                        <td>Confirmed</td>
+                    </tr>
+                    <tr>
+                        <td>1002</td>
+                        <td>Vijay</td>
+                        <td>Dr. Priya</td>
+                        <td>A+</td>
+                        <td>23-07-2026</td>
+                        <td>Waiting</td>
+                    </tr>
+                    <tr>
+                        <td>1003</td>
+                        <td>Rahul</td>
+                        <td>Dr. Kumar</td>
+                        <td>B+</td>
+                        <td>24-07-2026</td>
+                        <td>Confirmed</td>
+                    </tr>
+                    <tr>
+                        <td>1004</td>
+                        <td>Suresh</td>
+                        <td>Dr. Meena</td>
+                        <td>AB+</td>
+                        <td>25-07-2026</td>
+                        <td>Completed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </center>
+    </main>
+</body>
+</html>

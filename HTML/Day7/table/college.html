@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Admission Form & Admission Report</title>
+</head>
+<body>
+    <center>
+        <header>
+            <section>
+                <h1>Engineering College Admission Portal</h1>
+            </section>
+        </header>
+    </center>
+    <main>
+        <form>
+            <label for="studentname">Student Name:</label><br>
+            <input type="text" id="studentname" placeholder="Enter Student Name" required><br><br>
+            <label for="fathername">Father Name:</label><br>
+            <input type="text" id="fathername" placeholder="Enter Father Name" required><br><br>
+            <label for="mothername">Mother Name:</label><br>
+            <input type="text" id="mothername" placeholder="Enter Mother Name" required><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" placeholder="Enter Email Address" required><br><br>
+            <label for="phone">Phone Number:</label><br>
+            <input type="tel" id="phone" minlength="10" maxlength="10" placeholder="Enter Phone Number" required><br><br>
+            <label for="dob">Date of Birth:</label><br>
+            <input type="date" id="dob" required><br><br>
+            <label>Gender:</label><br>
+            <input type="radio" name="gender"> Male
+            <input type="radio" name="gender"> Female
+            <input type="radio" name="gender"> Other
+            <br><br>
+            <label for="department">Department:</label><br>
+            <select id="department">
+                <option>Select Department</option>
+                <option>Computer Science Engineering</option>
+                <option>Information Technology</option>
+                <option>Electronics & Communication</option>
+                <option>Electrical & Electronics</option>
+                <option>Mechanical Engineering</option>
+                <option>Civil Engineering</option>
+                <option>Artificial Intelligence & Data Science</option>
+            </select>
+            <br><br>
+            <label for="percentage">12th Percentage:</label><br>
+            <input type="number" id="percentage" placeholder="Enter Percentage" required><br><br>
+            <label for="address">Address:</label><br>
+            <textarea id="address" rows="4" cols="30" placeholder="Enter Your Address"></textarea><br><br>
+            <label for="photo">Passport Size Photo:</label><br>
+            <input type="file" id="photo"><br><br>
+            <input type="submit" value="Apply Now">
+            <input type="reset" value="Clear Form">
+        </form>
+        <br><br>
+        <center>
+            <table border="2" bgcolor="red" cellpadding="20">
+                <thead>
+                    <tr>
+                        <th>Application ID</th>
+                        <th>Student Name</th>
+                        <th>Department</th>
+                        <th>Percentage</th>
+                        <th>Email</th>
+                        <th>Admission Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>2026001</td>
+                        <td>Gowtham Krishnan R</td>
+                        <td>Computer Science Engineering</td>
+                        <td>91%</td>
+                        <td>gowtham@gmail.com</td>
+                        <td>Approved</td>
+                    </tr>
+                    <tr>
+                        <td>2026002</td>
+                        <td>Rahul</td>
+                        <td>Information Technology</td>
+                        <td>88%</td>
+                        <td>rahul@gmail.com</td>
+                        <td>Pending</td>
+                    </tr>
+                    <tr>
+                        <td>2026003</td>
+                        <td>Vijay</td>
+                        <td>Mechanical Engineering</td>
+                        <td>85%</td>
+                        <td>vijay@gmail.com</td>
+                        <td>Approved</td>
+                    </tr>
+                    <tr>
+                        <td>2026004</td>
+                        <td>Suresh</td>
+                        <td>Artificial Intelligence & Data Science</td>
+                        <td>93%</td>
+                        <td>suresh@gmail.com</td>
+                        <td>Waiting List</td>
+                    </tr>
+                </tbody>
+            </table>
+        </center>
+    </main>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Box Model Layout</title>
+    <style>
+        .box-1 {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            border: solid 1px ;
+        }
+
+        .box-2 {
+            width: 400px;
+            height: 400px;
+            padding-left: 20px;
+            padding-top: 30px;
+            background-color: blue;
+            color: yellowgreen;
+            border: solid 1px ;
+        }
+
+        .box-3 {
+            width: 400px;
+            height: 400px;
+            background-color: green;
+            border: double 10px  yellow  ;
+            border-radius: 50px;
+        }
+
+        .box-3>h2 {
+            padding-left: 100px;
+            padding-top:150px;
+            color: yellow;
+        }
+
+        .box-4 {
+            width: 400px;
+            height: 400px;
+            background-color: aqua;
+            border-radius: 10%;
+            margin-top: 60px;
+            margin-left: 460px;
+            border: dashed 10px ;
+        }
+
+        .box-4>h2 {
+            padding-left: 120px;
+            padding-top: 150px;
+        }
+
+    </style>
+</head>
+<body>
+    <section>
+        <div class="box-1">
+            <h2>This is Box-1</h2>
+        </div> <br><br>
+        <div class="box-2">
+            <h2>Padding Example</h2>
+        </div> <br><br>
+        <div class="box-3">
+            <h2>Border Example</h2>
+        </div>
+        <div class="box-4">
+            <h2>Margin Example</h2>
+        </div>
+    </section>
+</body>
+</html>

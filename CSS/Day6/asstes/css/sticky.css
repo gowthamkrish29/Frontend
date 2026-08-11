@@ -1,0 +1,81 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: rgb(7, 7, 34);
+}
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: yellow;
+    padding-left: 15px;
+}
+
+.header > div > nav {
+    color: blue;
+    font-size: x-large;
+    font-weight: bolder;
+    padding: 20px;
+    margin: 10px;
+}
+
+.nav {
+    display: flex;
+    gap: 70px;
+}
+
+.main p{
+    color: whitesmoke;
+    font-size: 30px;
+    padding :20px
+}
+
+.services p {
+    color: whitesmoke;
+    font-size: 30px;
+    padding-left: 10px;
+}
+
+.services ul {
+    color: yellow;
+    font-size: 30px;
+    padding: 10px;
+    padding-bottom: 40px;
+}
+
+.services li {
+    padding: 10px;
+}
+
+.contact h2{
+    color: yellow;
+    font-size: 30px;
+    padding-left: 30px;
+    padding-bottom: 10px;
+}
+
+.contact p {
+    color: whitesmoke;
+    font-size: 25px;
+    padding-left: 30px;
+    padding-bottom: 10px;
+}

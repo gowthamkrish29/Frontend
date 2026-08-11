@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Registration & Inventory Report</title>
+</head>
+<body>
+    <center>
+        <header>
+            <section>
+                <h1>Electronics Shop Inventory System</h1>
+            </section>
+        </header>
+    </center>
+    <main>
+        <form>
+            <label for="productid">Product ID:</label><br>
+            <input type="number" id="productid" placeholder="Enter Product ID" required><br><br>
+            <label for="productname">Product Name:</label><br>
+            <input type="text" id="productname" placeholder="Enter Product Name" required><br><br>
+            <label for="brand">Brand:</label><br>
+            <input type="text" id="brand" placeholder="Enter Brand Name" required><br><br>
+            <label for="category">Category:</label><br>
+            <select id="category">
+                <option>Select Category</option>
+                <option>Mobile</option>
+                <option>Laptop</option>
+                <option>Tablet</option>
+                <option>Smart Watch</option>
+                <option>Headphones</option>
+                <option>Accessories</option>
+            </select>
+            <br><br>
+            <label for="price">Price:</label><br>
+            <input type="number" id="price" placeholder="Enter Product Price" required><br><br>
+            <label for="quantity">Quantity:</label><br>
+            <input type="number" id="quantity" placeholder="Enter Quantity" required><br><br>
+            <label for="supplier">Supplier:</label><br>
+            <input type="text" id="supplier" placeholder="Enter Supplier Name" required><br><br>
+            <label for="image">Product Image:</label><br>
+            <input type="file" id="image"><br><br>
+            <input type="submit" value="Add Product">
+            <input type="reset" value="Clear Form">
+        </form>
+        <br><br>
+        <center>
+            <table border="2" bgcolor="orange" cellpadding="30" cellspacing="5">
+                <thead>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Product Name</th>
+                        <th>Brand</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Stock Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1001</td>
+                        <td>iPhone 16</td>
+                        <td>Apple</td>
+                        <td>₹89,900</td>
+                        <td>25</td>
+                        <td>In Stock</td>
+                    </tr>
+                    <tr>
+                        <td>1002</td>
+                        <td>Galaxy S25</td>
+                        <td>Samsung</td>
+                        <td>₹79,999</td>
+                        <td>18</td>
+                        <td>In Stock</td>
+                    </tr>
+                    <tr>
+                        <td>1003</td>
+                        <td>ThinkPad E16</td>
+                        <td>Lenovo</td>
+                        <td>₹64,500</td>
+                        <td>8</td>
+                        <td>Low Stock</td>
+                    </tr>
+                    <tr>
+                        <td>1004</td>
+                        <td>Noise Smart Watch</td>
+                        <td>Noise</td>
+                        <td>₹4,999</td>
+                        <td>0</td>
+                        <td>Out of Stock</td>
+                    </tr>
+                </tbody>
+            </table>
+        </center>
+    </main>
+</body>
+</html>

@@ -1,0 +1,45 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: black;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(3, 250px);
+    justify-content: space-evenly;
+    padding: 30px;
+    align-items: center;
+    gap: 30px;
+}
+
+.child {
+    width: 200px;
+    height: 200px;
+    border: 3px solid beige;
+    background-color: crimson;
+}
+
+.child > h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.child > h4{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+
+

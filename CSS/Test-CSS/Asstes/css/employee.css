@@ -1,0 +1,154 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: black;
+}
+
+.header {
+    background-color: blue;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#employees {
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+    margin-top: 60px;
+    gap: 80px;
+    padding: 30px;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.sundar {
+   width: 500px;
+   height: 680px;
+   text-align: center;
+   border: 3px solid ;
+   border-radius: 5px;
+   background-color: beige;
+}
+
+.sundar img {
+    width: 100%;
+    height: 500px;
+    transition: transform 0.3s ease;
+}
+
+.sundar p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: beige;
+    width: auto;
+    margin: auto;
+    padding: 13px;
+}
+
+.sundar img:hover {
+    transform: scale(1.08);
+}
+
+.Elon-musk {
+   width:500px;
+   height: 680px;
+   background-color: beige;
+   text-align: center;
+   border-radius: 5px;
+}
+
+.Elon-musk img {
+    width: 100%;
+    height: 500px;
+    transition: transform 0.3s ease;
+    border-radius: 5px;
+}
+
+.Elon-musk p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: beige;
+    width: auto;
+    margin: auto;
+    padding: 13px;
+}
+
+.Elon-musk img:hover {
+    transform: scale(1.08);
+}
+
+.Mark {
+   width: 500px;
+   height: 680px;
+   background-color: beige;
+   text-align: center;
+   border-radius: 5px;
+}
+
+.Mark img {
+    width: 100%;
+    height: 500px;
+    transition: transform 0.3s ease;
+    border-radius: 5px;
+}
+
+.Mark p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: beige;
+    width: auto;
+    margin: auto;
+    padding: 13px;
+}
+
+.Mark img:hover {
+    transform: scale(1.08);
+}
+
+.Jeff-bezos {
+   width: 500px;
+   height: 680px;
+   background-color: beige;
+   text-align: center;
+   border-radius: 5px;
+}
+
+.Jeff-bezos img {
+    width: 100%;
+    height: 500px;
+    transition: transform 0.3s ease;
+    border-radius: 5px;
+}
+
+.Jeff-bezos p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: beige;
+    width: auto;
+    margin: auto;
+    padding: 13px;
+}
+
+.Jeff-bezos img:hover {
+    transform: scale(1.08);
+}

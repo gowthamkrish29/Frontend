@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Card Lift Effect</title>
+
+    <style>
+        .images {
+            display: grid;
+            grid-template-columns: repeat(2, 400px);
+            justify-content: space-evenly;
+            gap: 30px;
+        }
+
+        .products {
+            width: 400px;
+            height: 470px;  
+            background-color: black;
+            border: 3px solid greenyellow;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .products p {
+            color: white;
+        }
+
+        .products img {
+            width: 300px;
+            height: 300px;
+            margin-top: 20px;
+        }
+
+        .products button {
+            background-color: orangered;
+            color: black;
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .products img:hover {
+            transition: 0.4s;
+            transform: translateY(-20px);
+        }
+
+        .products button:hover {
+            transition: 0.4s;
+            transform: scale(1.08);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="images">
+        <div class="products">
+            <img src="../Day7/assets/images/airpods.jpg" alt="">
+            <p><strong>Product Name :</strong> Apple Airpods</p>
+            <p><strong>Price :</strong> 30,000</p>
+            <button>Buy Now</button>
+        </div>
+
+        <div class="products">
+            <img src="../Day7/assets/images/gopro.jpg" alt="">
+            <p><strong>Product Name :</strong> Go-Pro</p>
+            <p><strong>Price :</strong> 33,000</p>
+            <button>Buy Now</button>
+        </div>
+
+        <div class="products">
+            <img src="../Day7/assets/images/iphone.jpg" alt="">
+            <p><strong>Product Name :</strong> Iphone 17 Pro Max</p>
+            <p><strong>Price :</strong> 1,40,000</p>
+            <button>Buy Now</button>
+        </div>
+
+        <div class="products">
+            <img src="../Day7/assets/images/mac.jpg" alt="">
+            <p><strong>Product Name :</strong> Mac Book Pro</p>
+            <p><strong>Price :</strong> 1,80,000</p>
+            <button>Buy Now</button>
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Hover Effect</title>
+
+    <style>
+        .buttons button {
+            background-color: rgb(2, 241, 193);
+            color: rgb(239, 4, 47);
+            width: 100px;
+            height: 50px;
+            border: none;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bolder;
+            font-size: 18px;
+        }
+
+        .buttons button:hover {
+            background-color: rgb(83, 0, 216);
+            color: sandybrown;
+            transition: 0.5s;
+            transform: scale(1.1);
+        }
+    </style>
+
+</head>
+<body>
+        <div class="buttons">
+            <button>Login</button>
+            <button>Register</button>
+            <button>Sumbit</button>
+            <button>Save</button>
+            <button>Delete</button>
+
+        </div>
+</body>
+</html>

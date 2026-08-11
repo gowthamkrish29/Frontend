@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile Card Animation</title>
+
+    <style>
+        .students {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .images {
+           width: 400px;
+            height: 470px;
+            background-color: black;
+            border: 3px solid greenyellow;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+
+        .images img {
+            width: 300px;
+            height: 300px;
+        }
+
+        .images p {
+            color: white;
+        }
+
+        .images img:hover {
+            transition: 0.5s;
+            transform: scale(1.05) translateY(-8px);
+        }
+    </style>
+</head>
+<body>
+    <div class="students">
+        <div class="images">
+            <img src="asstes/images/sundar" alt="">
+            <p><strong>Student Name : </strong>Sundar Pichai</p>
+            <p><strong>Course : </strong>Full Stack Developer</p>
+            <p><strong>Mobile Number : </strong>32658 47895</p>
+
+        </div>
+
+        <div class="images">
+            <img src="asstes/images/mark" alt="">
+            <p><strong>Student Name : </strong>Mark</p>
+            <p><strong>Course : </strong>Data Analyst</p>
+            <p><strong>Mobile Number : </strong>36868 45955</p>
+        </div>
+
+        <div class="images">
+            <img src="asstes/images/elon-musk" alt="">
+            <p><strong>Student Name : </strong>Elon Musk</p>
+            <p><strong>Course : </strong>Data Scienctist</p>
+            <p><strong>Mobile Number : </strong>32658 47895</p>
+        </div>
+    </div>
+</body>
+</html>

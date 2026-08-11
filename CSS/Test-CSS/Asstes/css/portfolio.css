@@ -1,0 +1,113 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: navy;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: navajowhite;
+    padding: 10px;
+}
+
+.header h2 {
+    padding-top : 10px;
+    color: navy;
+}
+
+.navigation nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    margin: 20px;
+    padding: 10px;
+}
+
+a {
+    display: flex;
+    gap: 40px;
+    text-decoration: none;
+}
+
+#about {
+    margin: 30px;
+    padding: 30px;
+    font-size: 20px;
+    color: white;
+}
+
+#about p {
+    color: wheat;
+    padding-bottom: 30px;
+    font-size: x-large;
+}
+
+#skills {
+    margin: 30px;
+    padding: 30px;
+    font-size: x-large;
+    color: white;
+}
+
+#skills p {
+    color: wheat;
+    padding-bottom: 30px;
+    font-size: x-large;
+}
+
+#skills ul {
+    padding-left: 30px;
+    font-size: 30px;
+}
+
+#projects {
+    margin: 30px;
+    padding: 30px;
+    font-size: 20px;
+    color: white;
+}
+
+#projects p {
+    color: wheat;
+    padding-bottom: 30px;
+    font-size: x-large;
+}
+
+#projects h3 {
+    color: sandybrown;
+    padding-bottom: 20px;
+    margin-top: 20px;
+}
+
+#contact {
+    border-top: 1px wheat solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color: white;
+}
+
+
+.footer-nav > div{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    gap: 30px;
+    margin: 20px;
+}
+
+.footer-nav a {
+    color: wheat;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Card</title>
+    <style>
+
+        .main {
+            display: flex;
+            align-items: center;
+            margin-left: 350px;
+            margin-top: 50px;
+        }
+
+        .card {
+            flex-direction: column;
+            width: 250px;
+            height: 150px;
+            background-color: lightgreen;
+            border: 2px solid green;
+            border-radius: 20px;
+            text-align: center;
+            padding-top: 40px;
+            margin: 20px;
+        }
+
+        .hide {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="card">
+            <h3>Card 1</h3>
+            <p>Visible Card</p>
+        </div>
+
+        <div class="card hide">
+            <h3>Card 2</h3>
+            <p>Hidden using visibility:hidden</p>
+        </div>
+
+        <div class="card">
+            <h3>Card 3</h3>
+            <p>Visible Card</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

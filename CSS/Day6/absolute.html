@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Badge</title>
+
+    <style>
+        .parent {
+            position: relative;
+        }
+
+        .badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: blue;
+        }
+
+        .badge {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        
+        .badge > div > img {
+            width: 60px;
+            height: 60px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="parent">
+            <div class="badge">
+                <div>
+                    <h1>Absolute Position</h1>
+                </div>
+                <div>
+                    <img src="asstes/images/shopping-cart.png" alt="shopping-cart">
+                    <img src="asstes/images/notification.png" alt="Notification-icon">
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

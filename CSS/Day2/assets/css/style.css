@@ -1,0 +1,53 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: darkseagreen;
+}
+
+.header {
+    background-color: greenyellow;
+    color: blue;
+    width: 100vh;
+    height: 100px;
+}
+
+.name {
+    background-color: red;
+    color: ghostwhite;
+}
+
+.course {
+    color: navy;
+}
+
+p {
+    background-color: orangered;
+    color: navajowhite;
+    font-size: xx-large;
+    width: 100vh;
+    height: 80px;
+    text-align: center;
+}
+
+h2{
+    background-color: indigo;
+    width: 100vh;
+    height: 80px;
+}
+
+.mobile {
+    color: goldenrod ;
+    font-size: xx-large;
+}
+
+i {
+    color: rgb(255, 255, 255);
+    font-size: xx-large;
+}
