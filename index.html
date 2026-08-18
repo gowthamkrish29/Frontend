@@ -5,6 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>✨ Frontend Task Hub · Dark Edition</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">
+    </script>
+
     <style>
         /* ────────────── RESET & BASE ────────────── */
         * {
@@ -15,13 +18,13 @@
 
         body {
             font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: #0b0d12;
+            background: #bf3819;
             min-height: 100vh;
             padding: 2rem 1.5rem;
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-image: radial-gradient(ellipse at 20% 50%, rgb(37, 26, 189) 0%, rgb(99, 7, 228) 70%);
+            background-image: radial-gradient(ellipse at 20% 50%, #2c2c9d 0%, #6212d3 70%);
         }
 
         html {
@@ -173,11 +176,15 @@
             --day-bg: rgba(56, 189, 248, 0.12);
             --day-border: rgba(56, 189, 248, 0.25);
         }
+        .day-javascript {
+            --day-color: #f7c948;
+            --day-bg: rgba(247, 201, 72, 0.12);
+            --day-border: rgba(247, 201, 72, 0.25);
+        }
 
         /* ────────────── CARDS GRID ────────────── */
         .cards {
             display: grid;
-            /* === CHANGED: force 2 columns on large screens === */
             grid-template-columns: repeat(2, 1fr);
             gap: 2.2rem;
             width: 100%;
@@ -252,6 +259,9 @@
         }
         .tech-header.tailwind {
             background: linear-gradient(145deg, #38bdf8, #0e7490);
+        }
+        .tech-header.javascript {
+            background: linear-gradient(145deg, #f7c948, #d48c2c);
         }
 
         /* ── day groups inside tech card ── */
@@ -391,7 +401,6 @@
                 padding: 1.2rem 0.8rem;
             }
             .cards {
-                /* switch to single column on smaller screens */
                 grid-template-columns: 1fr;
                 gap: 1.6rem;
             }
@@ -440,7 +449,7 @@
         .credit {
             margin-top: 3.2rem;
             font-size: 0.75rem;
-            color: #3d4558;
+            color: #e1e3e6;
             letter-spacing: 1.5px;
             border-top: 1px solid rgba(255, 255, 255, 0.03);
             padding-top: 2rem;
@@ -455,7 +464,7 @@
             padding: 0.2rem 1.4rem;
             border-radius: 40px;
             border: 1px solid rgba(255, 255, 255, 0.03);
-            color: #5e667a;
+            color: #ffffff;
         }
     </style>
 </head>
@@ -477,7 +486,6 @@
                 <span class="count">43 tasks</span>
             </div>
             <div class="day-groups">
-                <!-- Day 1 .. 9 (same as before) -->
                 <div class="day-group day-1">
                     <div class="day-group-header">
                         <span class="dot"></span>
@@ -610,7 +618,6 @@
                 <span class="count">50+ tasks</span>
             </div>
             <div class="day-groups">
-                <!-- Day 1 .. 10 + Test (same as before) -->
                 <div class="day-group day-1">
                     <div class="day-group-header">
                         <span class="dot"></span>
@@ -804,6 +811,55 @@
             </div>
         </div>
 
+        <!-- ──────────── JAVASCRIPT CARD ──────────── -->
+        <div class="tech-card">
+            <div class="tech-header javascript">
+                <span class="icon">⚡</span> JavaScript
+                <span class="count"> tasks</span>
+            </div>
+            <div class="day-groups">
+                <div class="day-group day-javascript">
+                    <div class="day-group-header">
+                        <span class="dot" style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
+                        <span class="day-label" style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day 1</span>
+                        <span class="task-count"> task</span>
+                    </div>
+                    <div class="day-links">
+                        <a href="JAVASCRIPT/DAY1/var.txt" target="_blank">variables</a>
+                    </div>
+                </div>
+                <div class="day-group day-javascript">
+                    <div class="day-group-header">
+                        <span class="dot" style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
+                        <span class="day-label" style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day 2</span>
+                        <span class="task-count">4 tasks</span>
+                    </div>
+                    <div class="day-links">
+                        <a href="JAVASCRIPT/Day2/conditionals.html" target="_blank">conditionals</a>
+                        <a href="JAVASCRIPT/Day2/loops.html" target="_blank">loops</a>
+                        <a href="JAVASCRIPT/Day2/functions.html" target="_blank">functions</a>
+                        <a href="JAVASCRIPT/Day2/arrays.html" target="_blank">arrays</a>
+                    </div>
+                </div>
+                <div class="day-group day-javascript">
+                    <div class="day-group-header">
+                        <span class="dot" style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
+                        <span class="day-label" style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day 3</span>
+                        <span class="task-count">4 tasks</span>
+                    </div>
+                    <div class="day-links">
+                        <a href="JAVASCRIPT/Day3/dom-manipulation.html" target="_blank">dom-manipulation</a>
+                        <a href="JAVASCRIPT/Day3/events.html" target="_blank">events</a>
+                        <a href="JAVASCRIPT/Day3/forms.html" target="_blank">forms</a>
+                        <a href="JAVASCRIPT/Day3/localStorage.html" target="_blank">localStorage</a>
+                    </div>
+                </div>
+                <div style="padding:1.2rem 1.4rem 0.6rem; text-align:center; opacity:0.3; font-size:0.7rem; color:#5e667a; letter-spacing:1px; border-top:1px solid rgba(255,255,255,0.03); margin-top:0.4rem;">
+                    ✦ more days coming soon ✦
+                </div>
+            </div>
+        </div>
+
         <!-- ──────────── TAILWIND CARD ──────────── -->
         <div class="tech-card">
             <div class="tech-header tailwind">
@@ -841,11 +897,12 @@
             </div>
         </div>
 
-    </div> <!-- end .cards -->
+    </div>
+    <!-- end .cards -->
 
     <!-- ═══════ FOOTER ═══════ -->
     <footer class="credit">
-        <span>⚡  responsive · dark · organized  ⚡</span>
+        <span class="text-white">⚡ responsive · dark · organized ⚡</span>
     </footer>
 
 </body>

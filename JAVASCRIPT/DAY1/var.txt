@@ -1,0 +1,59 @@
+var
+
+
+1. var userName
+2. var userAge
+3. var userPassword
+4. var adminLogin
+5. var adminID
+6. var studentName
+7. var studentClass
+8. var studentRollNumber
+9. var adminPortal
+10. var studentPortal
+11. var collegePortal
+12. var userPlace
+13. var trainerID
+14. var loginStatus
+15. var logoutStatus
+
+
+let 
+
+
+1. let userName
+2. let userAge
+3. let userPassword
+4. let adminLogin
+5. let adminID
+6. let studentName
+7. let studentClass
+8. let studentRollNumber
+9. let adminPortal
+10. let studentPortal
+11. let collegePortal
+12. let userPlace
+13. let trainerID
+14. let loginStatus
+15. let logoutStatus
+
+
+const
+
+
+1. const collegeName
+2. const collegeID
+3. const courseName
+4. const courseDuration
+5. const adminID
+6. const studentID
+7. const trainerID
+8. const adminPortal
+9. const studentPortal
+10. const collegePortal
+11. const websiteURL
+12. const loginPage
+13. const logoutPage
+
+
+
