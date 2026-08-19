@@ -1,0 +1,115 @@
+1.let a =10;
+a += 20;
+Console.log(a);
+Output : 30
+
+2.let a =100;
+a += 20;
+Console.log(a);
+Output : 130
+
+3.let a =50;
+a -= 20;
+Console.log(a)
+Output : 30
+
+4.let a =60;
+a++;
+Console.log(a);
+Output : 61
+
+5.let a =10;
+a--;
+Console.log(a);
+Output : 30
+
+5.let a =10;
+a += 22
+Console.log(a)
+Output : 32
+
+6.let a =40;
+
+Console.log(++a);
+console.log(a);
+Output : 41
+Output : 41
+
+7.let a =40;
+
+Console.log(a++);
+console.log(a);
+Output : 40
+Output : 41
+
+8.let age = 30 ;
+
+console.log(age);
+
+age++;
+console.log(age);
+
+age++;
+console.log(age);
+
+Output : 30
+31
+32
+
+9.let age = 30 ;
+
+console.log(age);
+
+age--;
+console.log(age);
+
+age--;
+console.log(age);
+
+Output : 30
+29
+28
+
+10.let a =133;
+a += 20;
+Console.log(a);
+Output : 153
+
+11.let b =120;
+b += 20;
+Console.log(b);
+Output : 140
+
+12.let b =120;
+b -= 20;
+Console.log(b);
+Output : 100
+
+13.let b =650;
+b -= 600;
+Console.log(b);
+Output : 50
+
+14.let b =99;
+b += 20;
+Console.log(b);
+Output : 119
+
+15.let b =120;
+b -= 120;
+Console.log(b);
+Output : 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
