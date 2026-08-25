@@ -1,0 +1,95 @@
+<script>
+    let result = "";
+    for (i = 1; i <= 20; i++) {
+        result = result + i + " " + " , ";
+    }
+    console.log(result);
+
+
+
+    let result1 = "";
+    for (i = 1; i <= 20; i++) {
+        if (i % 2 === 0) {
+            result1 = result1 + i + " " + " , ";
+        }
+    }
+    console.log(result1);
+
+
+
+    let odd = "";
+    for (i = 1; i <= 20; i++) {
+        if (i % 2 !== 0) {
+            odd = odd + i + " " + " , ";
+        }
+    }
+    console.log(odd);
+
+
+    let sum = 0;
+
+    for (let i = 1; i <= 20; i++) {
+        sum = sum + i;
+    }
+
+    console.log(sum);
+
+
+
+    let sum1 = 0;
+
+    for (let i = 1; i <= 50; i++) {
+        if (i % 2 !== 0) {
+            sum1 = sum1 + i;
+        }
+
+    }
+
+    console.log(sum1);
+
+
+    let count = "";
+
+    for (let i = 1; i <= 100; i++) {
+        if (i % 2 === 0) {
+            count++;
+        }
+    }
+
+    console.log(count);
+
+
+    for (let i = 1; i <= 100; i++) {
+        if (i === 73) {
+            console.log("Found:", i)
+            break;
+        }
+    }
+
+
+    let number = "123456789";
+
+    let reverse = "";
+
+    for (let i = number.length - 1; i >= 0; i--) {
+        reverse = reverse + number[i] + " ";
+    }
+
+    console.log(reverse);
+
+
+
+    let number1 = "JavaScript";
+
+    let reverse1 = "";
+
+    for (let i = number1.length - 1; i >= 0; i--) {
+        reverse1 = reverse1 + number1[i] + " " + " " + " ";
+    }
+
+    console.log(reverse1);
+
+
+
+  
+</script>
