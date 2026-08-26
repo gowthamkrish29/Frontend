@@ -1,0 +1,67 @@
+<script>
+    let fruits = ["Apple", "Banana", "Mango", "Orange", "Grapes"];
+
+for (let i = 0; i < fruits.length; i++) {
+    console.log(fruits[i]);
+}
+</script>
+
+<script>
+    let details = {name:"Gowtham", age:20 , course:"Full Stack Development" , mark:"63"}
+
+    console.log(details.name);
+    console.log(details.age);
+    console.log(details.course);
+    console.log(details.mark);
+</script>
+
+<script>
+    let students = [
+        {name:"Gowtham", age:20 , course:"Full Stack Development" , mark:"63"},
+        {name:"Victor", age:22 , course:"Data Analyst" , mark:"90"},
+        {name:"Krish", age:19 , course:"Machine Learning" , mark:"83"}
+    ];
+
+    for(let i = 0; i<students.length; i++){
+        console.log(students[i].name, students[i].mark);
+    }
+</script>
+
+
+<script>
+    let person = [
+        {name:"Gowtham", age:20 , course:"Full Stack Development" , mark:"63"},
+        {name:"Victor", age:22 , course:"Data Analyst" , mark:"90"},
+        {name:"Krish", age:19 , course:"Machine Learning" , mark:"83"}
+    ];
+
+    let searchName= "Krish";
+
+    for (let i=0; i<person.length; i++){
+        if(person[i].name === searchName){
+            console.log("Name:",person[i].name);
+            console.log("Mark:",person[i].mark);
+        }
+    }
+</script>
+
+
+<script>
+    let salary = [
+        {name:"Gowtham", amount:60000},
+        {name:"Victor", amount:40000},
+        {name:"Krish", amount:50000}
+    ];
+
+    let highest = salary[0];
+
+
+    for (let i=0; i<person.length; i++){
+        if(salary[i].amount > highest.amount){
+            highest = salary[i];
+        }
+    }
+
+    console.log(highest.name, highest.amount);
+
+</script>
