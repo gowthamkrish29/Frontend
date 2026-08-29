@@ -1,25 +1,83 @@
 <script>
-    let add = (a,b) => {
-        console.log(a+b);
+    let add = (a, b) => {
+        console.log(a + b);
     }
 
-    add(0 , 684649)
+    add(0, 684649)
 </script>
 
 
 <script>
-    function printEven(n){
-        for (let i = 1; i<=n;i++){
-            if(i % 2 === 0 ){
+    let printEvent = (n) => {
+        for (let i = 1; i <= n; i++) {
+            if (i % 2 === 0) {
                 console.log(i);
-                
+
             }
         }
     }
 
-    printEven(20)
+    printEvent(20)
 </script>
 
 <script>
+
+    let factorail = (n) => {
+        let result = 1;
+
+        for (let i = 1; i <= n; i++) {
+            result = result * i;
+        }
+        return result;
+    };
+
+    console.log(factorail(5));
+
+</script>
+
+
+<script>
+    var globalvariable = "Global";
+
+    function example() {
+        var functionvariable = "Function";
+
+        if (true) {
+            let blockvariable = "This is a block let variable";
+            const blockConstant = "This is a block const variable"
+
+
+            console.log(globalvariable);
+            console.log(functionvariable);
+            console.log(blockvariable);
+            console.log(blockConstant);
+
+        }
+        console.log(globalvariable);
+        console.log(functionvariable);
+        console.log(blockvariable);
+        console.log(blockConstant);
+    }
+
+    example();
+
+    console.log(globalvariable);
     
+</script>
+
+
+
+<script>
+    console.log(variable)
+
+    var variable = "Hello";
+
+
+    console.log(hoistingLet)
+
+    let hoistingLet = "Hello";
+
+    console.log(hoistingConst)
+
+    const hoistingConst = "Hello";
 </script>
