@@ -192,6 +192,11 @@
             align-items: start;
         }
 
+        /* JavaScript card spans full width */
+        .tech-card.span-full {
+            grid-column: 1 / -1;
+        }
+
         /* ────────────── TECH CARD ────────────── */
         .tech-card {
             background: rgba(18, 22, 30, 0.75);
@@ -403,6 +408,10 @@
             .cards {
                 grid-template-columns: 1fr;
                 gap: 1.6rem;
+            }
+            /* On mobile, full-width span is not needed as it's a single column */
+            .tech-card.span-full {
+                grid-column: 1;
             }
             .tech-header {
                 font-size: 1.3rem;
@@ -805,14 +814,47 @@
                         <a href="BOOTSTRAP/Day3/index.html" target="_blank">task1</a>
                     </div>
                 </div>
-                <div style="padding:1.2rem 1.4rem 0.6rem; text-align:center; opacity:0.3; font-size:0.7rem; color:#5e667a; letter-spacing:1px; border-top:1px solid rgba(255,255,255,0.03); margin-top:0.4rem;">
-                    ✦ more days coming soon ✦
-                </div>
+                
             </div>
         </div>
 
-        <!-- ──────────── JAVASCRIPT CARD ──────────── -->
+        <!-- ──────────── TAILWIND CARD ──────────── -->
         <div class="tech-card">
+            <div class="tech-header tailwind">
+                <span class="icon">🌊</span> Tailwind
+                <span class="count">8 tasks</span>
+            </div>
+            <div class="day-groups">
+                <div class="day-group day-tailwind">
+                    <div class="day-group-header">
+                        <span class="dot" style="background:var(--day-color);"></span>
+                        <span class="day-label">Day 1</span>
+                        <span class="task-count">5 tasks</span>
+                    </div>
+                    <div class="day-links">
+                        <a href="TAILWIND/Day1/task1.html" target="_blank">task1</a>
+                        <a href="TAILWIND/Day1/task2.html" target="_blank">task2</a>
+                        <a href="TAILWIND/Day1/task3.html" target="_blank">task3</a>
+                        <a href="TAILWIND/Day1/task4.html" target="_blank">task4</a>
+                        <a href="TAILWIND/Day1/task5.html" target="_blank">task5</a>
+                    </div>
+                </div>
+                <div class="day-group day-tailwind">
+                    <div class="day-group-header">
+                        <span class="dot" style="background:var(--day-color);"></span>
+                        <span class="day-label">Day 2</span>
+                        <span class="task-count">2 tasks</span>
+                    </div>
+                    <div class="day-links">
+                        <a href="TAILWIND/Day2/index.html" target="_blank">task1</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- ──────────── JAVASCRIPT CARD (FULL WIDTH) ──────────── -->
+        <div class="tech-card span-full">
             <div class="tech-header javascript">
                 <span class="icon">⚡</span> JavaScript
                 <span class="count"> tasks</span>
@@ -849,7 +891,7 @@
                         <span class="task-count">6 tasks</span>
                     </div>
                     <div class="day-links">
-                       <a href="JAVASCRIPT/Day3/task1.html" target="_blank">task1</a>
+                        <a href="JAVASCRIPT/Day3/task1.html" target="_blank">task1</a>
                         <a href="JAVASCRIPT/Day3/task2.html" target="_blank">task2</a>
                         <a href="JAVASCRIPT/Day3/task3.html" target="_blank">task3</a>
                         <a href="JAVASCRIPT/Day3/task4.html" target="_blank">task4</a>
@@ -857,8 +899,8 @@
                         <a href="JAVASCRIPT/Day3/day3-notes.txt" target="_blank">notes</a>
                     </div>
                 </div>
-               
-                 <div class="day-group day-javascript">
+
+                <div class="day-group day-javascript">
                     <div class="day-group-header">
                         <span class="dot" style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
                         <span class="day-label" style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day 4</span>
@@ -873,7 +915,7 @@
                     </div>
                 </div>
 
-                 <div class="day-group day-javascript">
+                <div class="day-group day-javascript">
                     <div class="day-group-header">
                         <span class="dot" style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
                         <span class="day-label" style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day 5</span>
@@ -884,7 +926,7 @@
                     </div>
                 </div>
 
-                 <div class="day-group day-javascript">
+                <div class="day-group day-javascript">
                     <div class="day-group-header">
                         <span class="dot" style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
                         <span class="day-label" style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day 6</span>
@@ -895,7 +937,7 @@
                     </div>
                 </div>
 
-                 <div class="day-group day-javascript">
+                <div class="day-group day-javascript">
                     <div class="day-group-header">
                         <span class="dot" style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
                         <span class="day-label" style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day 7</span>
@@ -905,9 +947,9 @@
                     <div class="day-links">
                         <a href="JAVASCRIPT/Day7/task.html" target="_blank">Tasks</a>
                     </div>
-                    </div>
+                </div>
 
-                    <div class="day-group day-javascript">
+                <div class="day-group day-javascript">
                     <div class="day-group-header">
                         <span class="dot" style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
                         <span class="day-label" style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day 8</span>
@@ -922,51 +964,14 @@
                     <div class="day-group-header">
                         <span class="dot" style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
                         <span class="day-label" style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day 9</span>
-                        <span class="task-count">10 tasks</span>
+                        <span class="task-count">Tasks</span>
                     </div>
                     <div class="day-links">
-                        <a href="JAVASCRIPT/Day7/task.html" target="_blank">Task 1 to 10</a>
-                    </div>
-                </div>
-                 <div style="padding:1.2rem 1.4rem 0.6rem; text-align:center; opacity:0.3; font-size:0.7rem; color:#5e667a; letter-spacing:1px; border-top:1px solid rgba(255,255,255,0.03); margin-top:0.4rem;">
-                    ✦ more days coming soon ✦
-                </div>
-            </div>
-        </div>
-
-        <!-- ──────────── TAILWIND CARD ──────────── -->
-        <div class="tech-card">
-            <div class="tech-header tailwind">
-                <span class="icon">🌊</span> Tailwind
-                <span class="count">8 tasks</span>
-            </div>
-            <div class="day-groups">
-                <div class="day-group day-tailwind">
-                    <div class="day-group-header">
-                        <span class="dot" style="background:var(--day-color);"></span>
-                        <span class="day-label">Day 1</span>
-                        <span class="task-count">5 tasks</span>
-                    </div>
-                    <div class="day-links">
-                        <a href="TAILWIND/Day1/task1.html" target="_blank">task1</a>
-                        <a href="TAILWIND/Day1/task2.html" target="_blank">task2</a>
-                        <a href="TAILWIND/Day1/task3.html" target="_blank">task3</a>
-                        <a href="TAILWIND/Day1/task4.html" target="_blank">task4</a>
-                        <a href="TAILWIND/Day1/task5.html" target="_blank">task5</a>
-                    </div>
-                </div>
-                <div class="day-group day-tailwind">
-                    <div class="day-group-header">
-                        <span class="dot" style="background:var(--day-color);"></span>
-                        <span class="day-label">Day 2</span>
-                        <span class="task-count">2 tasks</span>
-                    </div>
-                    <div class="day-links">
-                        <a href="TAILWIND/Day2/index.html" target="_blank">task1</a>
+                        <a href="JAVASCRIPT/Day9/task.html" target="_blank">Tasks</a>
                     </div>
                 </div>
                 <div style="padding:1.2rem 1.4rem 0.6rem; text-align:center; opacity:0.3; font-size:0.7rem; color:#5e667a; letter-spacing:1px; border-top:1px solid rgba(255,255,255,0.03); margin-top:0.4rem;">
-                    ✦ more tasks as you add them ✦
+                    ✦ more days coming soon ✦
                 </div>
             </div>
         </div>
