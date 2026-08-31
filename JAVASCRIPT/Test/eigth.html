@@ -1,0 +1,19 @@
+<script>
+    const students = [
+        {name: "Arun", mark: 85},
+        {name: "Bala", mark: 65},
+        {name: "Charan", mark: 90},
+        {name: "Deepak", mark: 70}
+    ];
+
+    let highest = students[0];
+
+    for (i = 1; i < students.length; i++) {
+        if (students[i].mark >highest.mark) {
+            highest = students[i];
+        }
+    }
+
+    console.log(highest);
+    
+</script>
