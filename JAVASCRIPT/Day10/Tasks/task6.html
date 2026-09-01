@@ -1,0 +1,24 @@
+<script>
+
+    class student {
+        constructor(name, age, mark) {
+            this.name = name;
+            this.age = age;
+            this.mark = mark;
+        }
+
+        displayDetails() {
+            console.log("Name:", this.name);
+            console.log("Age:", this.age);
+            console.log("Mark:", this.mark);
+
+        }
+
+    }
+
+    let student1 = new student("Gowtham" , 20 , 90);
+    let student2 = new student("Jesse" , 23, 100)
+
+    student1.displayDetails();
+    student2.displayDetails();
+</script>

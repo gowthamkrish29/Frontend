@@ -18,13 +18,13 @@
 
         body {
             font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: #bf3819;
+            background: #0b0d12;
             min-height: 100vh;
             padding: 2rem 1.5rem;
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-image: radial-gradient(ellipse at 20% 50%, #2c2c9d 0%, #6212d3 70%);
+            background-image: radial-gradient(ellipse at 20% 50%, #1a1a4e 0%, #0b0d12 70%);
         }
 
         html {
@@ -35,17 +35,14 @@
         ::-webkit-scrollbar {
             width: 8px;
         }
-
         ::-webkit-scrollbar-track {
             background: #14181f;
             border-radius: 10px;
         }
-
         ::-webkit-scrollbar-thumb {
             background: #2a3142;
             border-radius: 10px;
         }
-
         ::-webkit-scrollbar-thumb:hover {
             background: #3f4a62;
         }
@@ -84,12 +81,10 @@
         }
 
         @keyframes shimmer {
-
             0%,
             100% {
                 background-position: 0% center;
             }
-
             50% {
                 background-position: 200% center;
             }
@@ -126,73 +121,61 @@
             --day-bg: rgba(255, 107, 107, 0.12);
             --day-border: rgba(255, 107, 107, 0.25);
         }
-
         .day-2 {
             --day-color: #4ecdc4;
             --day-bg: rgba(78, 205, 196, 0.12);
             --day-border: rgba(78, 205, 196, 0.25);
         }
-
         .day-3 {
             --day-color: #45b7d1;
             --day-bg: rgba(69, 183, 209, 0.12);
             --day-border: rgba(69, 183, 209, 0.25);
         }
-
         .day-4 {
             --day-color: #a8e6cf;
             --day-bg: rgba(168, 230, 207, 0.10);
             --day-border: rgba(168, 230, 207, 0.20);
         }
-
         .day-5 {
             --day-color: #fdcb6e;
             --day-bg: rgba(253, 203, 110, 0.12);
             --day-border: rgba(253, 203, 110, 0.25);
         }
-
         .day-6 {
             --day-color: #dda0dd;
             --day-bg: rgba(221, 160, 221, 0.12);
             --day-border: rgba(221, 160, 221, 0.25);
         }
-
         .day-7 {
             --day-color: #ff8a5c;
             --day-bg: rgba(255, 138, 92, 0.12);
             --day-border: rgba(255, 138, 92, 0.25);
         }
-
         .day-8 {
             --day-color: #a29bfe;
             --day-bg: rgba(162, 155, 254, 0.12);
             --day-border: rgba(162, 155, 254, 0.25);
         }
-
         .day-9 {
             --day-color: #fd79a8;
             --day-bg: rgba(253, 121, 168, 0.12);
             --day-border: rgba(253, 121, 168, 0.25);
         }
-
         .day-10 {
             --day-color: #00b894;
             --day-bg: rgba(0, 184, 148, 0.12);
             --day-border: rgba(0, 184, 148, 0.25);
         }
-
         .day-test {
             --day-color: #fdcb6e;
             --day-bg: rgba(253, 203, 110, 0.08);
             --day-border: rgba(253, 203, 110, 0.15);
         }
-
         .day-tailwind {
             --day-color: #38bdf8;
             --day-bg: rgba(56, 189, 248, 0.12);
             --day-border: rgba(56, 189, 248, 0.25);
         }
-
         .day-javascript {
             --day-color: #f7c948;
             --day-bg: rgba(247, 201, 72, 0.12);
@@ -258,7 +241,6 @@
         .tech-header .icon {
             font-size: 1.8rem;
         }
-
         .tech-header .count {
             margin-left: auto;
             font-size: 0.7rem;
@@ -274,19 +256,15 @@
         .tech-header.html {
             background: linear-gradient(145deg, #e34f26, #b31b1b);
         }
-
         .tech-header.css {
             background: linear-gradient(145deg, #2965f1, #0e4b9e);
         }
-
         .tech-header.bootstrap {
             background: linear-gradient(145deg, #6f42c1, #4a2d7a);
         }
-
         .tech-header.tailwind {
             background: linear-gradient(145deg, #38bdf8, #0e7490);
         }
-
         .tech-header.javascript {
             background: linear-gradient(145deg, #f7c948, #d48c2c);
         }
@@ -412,13 +390,11 @@
             border-color: rgba(253, 203, 110, 0.15);
             color: #f0e6c0;
         }
-
         .day-links a.test-link::before {
             content: '🧪';
             font-size: 0.7rem;
             opacity: 0.7;
         }
-
         .day-links a.test-link:hover {
             background: rgba(253, 203, 110, 0.18);
             border-color: rgba(253, 203, 110, 0.35);
@@ -429,32 +405,25 @@
             body {
                 padding: 1.2rem 0.8rem;
             }
-
             .cards {
                 grid-template-columns: 1fr;
                 gap: 1.6rem;
             }
-
-            /* On mobile, full-width span is not needed as it's a single column */
             .tech-card.span-full {
                 grid-column: 1;
             }
-
             .tech-header {
                 font-size: 1.3rem;
                 padding: 1rem 1.2rem;
             }
-
             .day-group-header {
                 padding: 0.4rem 1rem;
                 flex-wrap: wrap;
             }
-
             .day-links {
                 padding: 0.4rem 1rem 0.7rem;
                 gap: 0.3rem;
             }
-
             .day-links a {
                 font-size: 0.72rem;
                 padding: 0.25rem 0.8rem;
@@ -467,21 +436,17 @@
                 padding: 1rem 1.2rem;
                 border-radius: 40px;
             }
-
             .tech-card {
                 border-radius: 28px 28px 20px 20px;
             }
-
             .tech-header {
                 font-size: 1.1rem;
                 padding: 0.8rem 1rem;
             }
-
             .day-group-header .day-label {
                 font-size: 0.65rem;
                 padding: 0.05rem 0.7rem;
             }
-
             .day-links a {
                 font-size: 0.68rem;
                 padding: 0.2rem 0.7rem;
@@ -509,6 +474,18 @@
             border: 1px solid rgba(255, 255, 255, 0.03);
             color: #ffffff;
         }
+
+        /* ─── placeholder note ─── */
+        .coming-soon {
+            padding: 1.2rem 1.4rem 0.6rem;
+            text-align: center;
+            opacity: 0.3;
+            font-size: 0.7rem;
+            color: #5e667a;
+            letter-spacing: 1px;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            margin-top: 0.4rem;
+        }
     </style>
 </head>
 
@@ -517,6 +494,9 @@
     <!-- ═══════ HEADER ═══════ -->
     <header class="main-header">
         <h1>🚀 <span>FRONTEND</span> TASK HUB</h1>
+        <div style="text-align:center; margin-top:0.6rem;">
+            <span class="header-badge">✦ dark · organized · 10+ days ✦</span>
+        </div>
     </header>
 
     <!-- ═══════ CARDS ═══════ -->
@@ -806,9 +786,7 @@
                 <div class="day-group day-test">
                     <div class="day-group-header">
                         <span class="dot" style="background:#fdcb6e; box-shadow:0 0 12px rgba(253,203,110,0.3);"></span>
-                        <span class="day-label"
-                            style="background:rgba(253,203,110,0.08); color:#fdcb6e; border-color:rgba(253,203,110,0.15);">🧪
-                            Test</span>
+                        <span class="day-label" style="background:rgba(253,203,110,0.08); color:#fdcb6e; border-color:rgba(253,203,110,0.15);">🧪 Test</span>
                         <span class="task-count">4 tasks</span>
                     </div>
                     <div class="day-links">
@@ -850,7 +828,7 @@
                         <a href="BOOTSTRAP/Day3/index.html" target="_blank">task1</a>
                     </div>
                 </div>
-
+                <div class="coming-soon">✦ more days coming soon ✦</div>
             </div>
         </div>
 
@@ -885,7 +863,7 @@
                         <a href="TAILWIND/Day2/index.html" target="_blank">task1</a>
                     </div>
                 </div>
-
+                <div class="coming-soon">✦ more tasks as you add them ✦</div>
             </div>
         </div>
 
@@ -893,29 +871,27 @@
         <div class="tech-card span-full">
             <div class="tech-header javascript">
                 <span class="icon">⚡</span> JavaScript
-                <span class="count"> tasks</span>
+                <span class="count">80+ tasks</span>
             </div>
             <div class="day-groups">
+
+                <!-- Day 1 -->
                 <div class="day-group day-javascript">
                     <div class="day-group-header">
-                        <span class="dot"
-                            style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
-                        <span class="day-label"
-                            style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day
-                            1</span>
-                        <span class="task-count"> task</span>
+                        <span class="dot" style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
+                        <span class="day-label" style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day 1</span>
+                        <span class="task-count">1 task</span>
                     </div>
                     <div class="day-links">
                         <a href="JAVASCRIPT/Day1/var.txt" target="_blank">variables</a>
                     </div>
                 </div>
+
+                <!-- Day 2 -->
                 <div class="day-group day-javascript">
                     <div class="day-group-header">
-                        <span class="dot"
-                            style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
-                        <span class="day-label"
-                            style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day
-                            2</span>
+                        <span class="dot" style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
+                        <span class="day-label" style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day 2</span>
                         <span class="task-count">5 tasks</span>
                     </div>
                     <div class="day-links">
@@ -926,13 +902,12 @@
                         <a href="JAVASCRIPT/DAY2/day2-notes.md" target="_blank">notes</a>
                     </div>
                 </div>
+
+                <!-- Day 3 -->
                 <div class="day-group day-javascript">
                     <div class="day-group-header">
-                        <span class="dot"
-                            style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
-                        <span class="day-label"
-                            style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day
-                            3</span>
+                        <span class="dot" style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
+                        <span class="day-label" style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day 3</span>
                         <span class="task-count">6 tasks</span>
                     </div>
                     <div class="day-links">
@@ -945,13 +920,11 @@
                     </div>
                 </div>
 
+                <!-- Day 4 -->
                 <div class="day-group day-javascript">
                     <div class="day-group-header">
-                        <span class="dot"
-                            style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
-                        <span class="day-label"
-                            style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day
-                            4</span>
+                        <span class="dot" style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
+                        <span class="day-label" style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day 4</span>
                         <span class="task-count">5 tasks</span>
                     </div>
                     <div class="day-links">
@@ -963,56 +936,47 @@
                     </div>
                 </div>
 
+                <!-- Day 5 -->
                 <div class="day-group day-javascript">
                     <div class="day-group-header">
-                        <span class="dot"
-                            style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
-                        <span class="day-label"
-                            style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day
-                            5</span>
+                        <span class="dot" style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
+                        <span class="day-label" style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day 5</span>
                         <span class="task-count">10 tasks</span>
                     </div>
                     <div class="day-links">
-                        <a href="JAVASCRIPT/Day5/task1.html" target="_blank">Task 1 to 10</a>
+                        <a href="JAVASCRIPT/Day5/task1.html" target="_blank">Task 1 → 10</a>
                     </div>
                 </div>
 
+                <!-- Day 6 -->
                 <div class="day-group day-javascript">
                     <div class="day-group-header">
-                        <span class="dot"
-                            style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
-                        <span class="day-label"
-                            style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day
-                            6</span>
+                        <span class="dot" style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
+                        <span class="day-label" style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day 6</span>
                         <span class="task-count">10 tasks</span>
                     </div>
                     <div class="day-links">
-                        <a href="JAVASCRIPT/Day6/tasks.html" target="_blank">Task 1 to 10</a>
+                        <a href="JAVASCRIPT/Day6/tasks.html" target="_blank">Task 1 → 10</a>
                     </div>
                 </div>
 
+                <!-- Day 7 -->
                 <div class="day-group day-javascript">
                     <div class="day-group-header">
-                        <span class="dot"
-                            style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
-                        <span class="day-label"
-                            style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day
-                            7</span>
+                        <span class="dot" style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
+                        <span class="day-label" style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day 7</span>
                         <span class="task-count">10 tasks</span>
                     </div>
-
                     <div class="day-links">
                         <a href="JAVASCRIPT/Day7/task.html" target="_blank">Tasks</a>
                     </div>
                 </div>
 
+                <!-- Day 8 -->
                 <div class="day-group day-javascript">
                     <div class="day-group-header">
-                        <span class="dot"
-                            style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
-                        <span class="day-label"
-                            style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day
-                            8</span>
+                        <span class="dot" style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
+                        <span class="day-label" style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day 8</span>
                         <span class="task-count">10 tasks</span>
                     </div>
                     <div class="day-links">
@@ -1020,75 +984,96 @@
                     </div>
                 </div>
 
+                <!-- Day 9 -->
                 <div class="day-group day-javascript">
                     <div class="day-group-header">
-                        <span class="dot"
-                            style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
-                        <span class="day-label"
-                            style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day
-                            9</span>
-                        <span class="task-count">Tasks</span>
+                        <span class="dot" style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
+                        <span class="day-label" style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day 9</span>
+                        <span class="task-count">—</span>
                     </div>
                     <div class="day-links">
                         <a href="JAVASCRIPT/Day9/task.html" target="_blank">Tasks</a>
                     </div>
                 </div>
 
+                <!-- Day 10 -->
                 <div class="day-group day-javascript">
                     <div class="day-group-header">
-                        <span class="dot"
-                            style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
-                        <span class="day-label"
-                            style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day
-                            10</span>
-                        <span class="task-count">10 Tasks</span>
+                        <span class="dot" style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
+                        <span class="day-label" style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day 10</span>
+                        <span class="task-count">10 tasks</span>
                     </div>
                     <div class="day-links">
-                        <a href="JAVASCRIPT/Day10/Task/arr-obj.html" target="_blank">Task1</a>
-                        <a href="JAVASCRIPT/Day10/Task/arrats.html" target="_blank">Task2</a>
-                        <a href="JAVASCRIPT/Day10/Task/factorial.html" target="_blank">Task3</a>
-                        <a href="JAVASCRIPT/Day10/Task/highest.html" target="_blank">Task4</a>
-                        <a href="JAVASCRIPT/Day10/Task/largest.html" target="_blank">Task5</a>
-                        <a href="JAVASCRIPT/Day10/Task/odd-even.html" target="_blank">Task6</a>
-                        <a href="JAVASCRIPT/Day10/Task/palindrome.html" target="_blank">Task7</a>
-                        <a href="JAVASCRIPT/Day10/Task/reverse.html" target="_blank">Task8</a>
-                        <a href="JAVASCRIPT/Day10/Task/sum-of-numbers.html" target="_blank">Task9</a>
-                        <a href="JAVASCRIPT/Day10/Task/vowels.html" target="_blank">Task10</a>
+                        <a href="JAVASCRIPT/Day10/Tasks/task1.html" target="_blank">Task1</a>
+                        <a href="JAVASCRIPT/Day10/Tasks/task2.html" target="_blank">Task2</a>
+                        <a href="JAVASCRIPT/Day10/Tasks/task3.html" target="_blank">Task3</a>
+                        <a href="JAVASCRIPT/Day10/Tasks/task4.html" target="_blank">Task4</a>
+                        <a href="JAVASCRIPT/Day10/Tasks/task5.html" target="_blank">Task5</a>
+                        <a href="JAVASCRIPT/Day10/Tasks/task6.html" target="_blank">Task6</a>
+                        <a href="JAVASCRIPT/Day10/Tasks/task7.html" target="_blank">Task7</a>
+                        <a href="JAVASCRIPT/Day10/Tasks/task8.html" target="_blank">Task8</a>
+                        <a href="JAVASCRIPT/Day10/Tasks/task9.html" target="_blank">Task9</a>
+                        <a href="JAVASCRIPT/Day10/Tasks/task10.html" target="_blank">Task10</a>
                     </div>
                     <div class="day-links">
-                        <a href="JAVASCRIPT/Day10/Website/index.html" target="_blank">JS Learning Portal Website</a>
+                        <a href="JAVASCRIPT/Day10/Logical-Tasks/arr-obj.html" target="_blank">Logical-1</a>
+                        <a href="JAVASCRIPT/Day10/Logical-Tasks/arrats.html" target="_blank">Logical-2</a>
+                        <a href="JAVASCRIPT/Day10/Logical-Tasks/factorial.html" target="_blank">Logical-3</a>
+                        <a href="JAVASCRIPT/Day10/Logical-Tasks/highest.html" target="_blank">Logical-4</a>
+                        <a href="JAVASCRIPT/Day10/Logical-Tasks/largest.html" target="_blank">Logical-5</a>
+                        <a href="JAVASCRIPT/Day10/Logical-Tasks/odd-even.html" target="_blank">Logical-6</a>
+                        <a href="JAVASCRIPT/Day10/Logical-Tasks/palindrome.html" target="_blank">Logical-7</a>
+                        <a href="JAVASCRIPT/Day10/Logical-Tasks/reverse.html" target="_blank">Logical-8</a>
+                        <a href="JAVASCRIPT/Day10/Logical-Tasks/sum-of-numbers.html" target="_blank">Logical-9</a>
+                        <a href="JAVASCRIPT/Day10/Logical-Tasks/vowels.html" target="_blank">Logical-10</a>
+                    </div>
+                    <div class="day-links">
+                        <a href="JAVASCRIPT/Day10/Website/index.html" target="_blank">🌟 JS Learning Portal</a>
                     </div>
                 </div>
 
+                <!-- Test -->
                 <div class="day-group day-javascript">
                     <div class="day-group-header">
-                        <span class="dot"
-                            style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
-                        <span class="day-label"
-                            style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Test</span>
-                        <span class="task-count">Test(29.08.2026) - Task</span>
+                        <span class="dot" style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
+                        <span class="day-label" style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">🧪 Test</span>
+                        <span class="task-count">13 tasks</span>
                     </div>
                     <div class="day-links">
-                        <a href="JAVASCRIPT/Test/one.html" target="_blank">Q.1</a>
-                        <a href="JAVASCRIPT/Test/two.html" target="_blank">Q.2</a>
-                        <a href="JAVASCRIPT/Test/three.html" target="_blank">Q.3</a>
-                        <a href="JAVASCRIPT/Test/four.html" target="_blank">Q.4</a>
-                        <a href="JAVASCRIPT/Test/five.html" target="_blank">Q.5</a>
-                        <a href="JAVASCRIPT/Test/six.html" target="_blank">Q.6</a>
-                        <a href="JAVASCRIPT/Test/seven.html" target="_blank">Q.7</a>
-                        <a href="JAVASCRIPT/Test/eigth.html" target="_blank">Q.8</a>
-                        <a href="JAVASCRIPT/Test/nine.html" target="_blank">Q.9</a>
-                        <a href="JAVASCRIPT/Test/ten.html" target="_blank">Q.10</a>
-                        <a href="JAVASCRIPT/Test/eleven.html" target="_blank">Q.11</a>
-                        <a href="JAVASCRIPT/Test/twelve.html" target="_blank">Q.12</a>
-                        <a href="JAVASCRIPT/Test/thirteen.html" target="_blank">Q.13</a>
-
+                        <a href="JAVASCRIPT/Test/one.html" target="_blank">Q1</a>
+                        <a href="JAVASCRIPT/Test/two.html" target="_blank">Q2</a>
+                        <a href="JAVASCRIPT/Test/three.html" target="_blank">Q3</a>
+                        <a href="JAVASCRIPT/Test/four.html" target="_blank">Q4</a>
+                        <a href="JAVASCRIPT/Test/five.html" target="_blank">Q5</a>
+                        <a href="JAVASCRIPT/Test/six.html" target="_blank">Q6</a>
+                        <a href="JAVASCRIPT/Test/seven.html" target="_blank">Q7</a>
+                        <a href="JAVASCRIPT/Test/eigth.html" target="_blank">Q8</a>
+                        <a href="JAVASCRIPT/Test/nine.html" target="_blank">Q9</a>
+                        <a href="JAVASCRIPT/Test/ten.html" target="_blank">Q10</a>
+                        <a href="JAVASCRIPT/Test/eleven.html" target="_blank">Q11</a>
+                        <a href="JAVASCRIPT/Test/twelve.html" target="_blank">Q12</a>
+                        <a href="JAVASCRIPT/Test/thirteen.html" target="_blank">Q13</a>
                     </div>
                 </div>
-                <div
-                    style="padding:1.2rem 1.4rem 0.6rem; text-align:center; opacity:0.3; font-size:0.7rem; color:#5e667a; letter-spacing:1px; border-top:1px solid rgba(255,255,255,0.03); margin-top:0.4rem;">
-                    ✦ more days coming soon ✦
+
+                <!-- Day 11 -->
+                <div class="day-group day-javascript">
+                    <div class="day-group-header">
+                        <span class="dot" style="background:var(--day-color); box-shadow:0 0 12px rgba(247,201,72,0.4);"></span>
+                        <span class="day-label" style="background:rgba(247,201,72,0.12); color:#f7c948; border-color:rgba(247,201,72,0.25);">Day 11</span>
+                        <span class="task-count">5 tasks</span>
+                    </div>
+                    <div class="day-links">
+                        <a href="JAVASCRIPT/Day11/Tasks/task1.html" target="_blank">Task1</a>
+                        <a href="JAVASCRIPT/Day11/Tasks/task2.html" target="_blank">Task2</a>
+                        <a href="JAVASCRIPT/Day11/Tasks/task3.html" target="_blank">Task3</a>
+                        <a href="JAVASCRIPT/Day11/Tasks/task4.html" target="_blank">Task4</a>
+                        <a href="JAVASCRIPT/Day11/Tasks/task5.html" target="_blank">Task5</a>
+                    </div>
                 </div>
+
+                <div class="coming-soon">✦ more days coming soon ✦</div>
+
             </div>
         </div>
 
@@ -1097,7 +1082,7 @@
 
     <!-- ═══════ FOOTER ═══════ -->
     <footer class="credit">
-        <span class="text-white">⚡ responsive · dark · organized ⚡</span>
+        <span>⚡ responsive · dark · organized ⚡</span>
     </footer>
 
 </body>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>var, let, and const</title>
+</head>
+
+<body>
+
+    <center>
+        <table border="2">
+            <tr>
+                <th>var</th>
+                <td>● var is a variable used to store values or data.</td>
+                <td>● var can be re-assigned and re-declared</td>
+                <td>●var is a functional or global scope it can invoke or accessed in every scope</td>
+                <td>● When var is used in a initialization and if we try to access before initialization it'll display
+                    undefined datatype</td>
+            </tr>
+
+            <tr>
+                <th>let</th>
+                <td>● let is also a variable used to store values or data.</td>
+                <td>● let can be only re-declared</td>
+                <td>● let is a block scope. When we try to access let outsie the block scope cope it'll display an error
+                </td>
+                <td>● When let is used in a initialization part and if we try to access before initialization it'll
+                    display referenceError</td>
+            </tr>
+
+            <tr>
+                <th>const</th>
+                <td>● const is a constant variable used to store values or data.</td>
+                <td>● const can only be initialized . It cannot be re-assigned or re-declared</td>
+                <td>● const is a block scope . When we try to access let outsie the block scope cope it'll display an
+                    error.</td>
+                <td>● When const is used in a initialization and if we try to access before initialization it'll display
+                    undefined referenceError</td>
+            </tr>
+        </table>
+    </center>
+
+
+    <script>
+        var global = "world";
+        console.log(global);
+
+        let continent = () => {
+            var country = "India";
+            let state = "Tamil Nadu";
+            const city = "Chennai";
+
+            console.log(country);
+            console.log(state);
+            console.log(city);
+
+            if (true) {
+                var name = "I'm Gowtham";
+                let age = "20 years young";
+                const status = "Unemployed";
+
+                console.log(name);
+                console.log(age);
+                console.log(status);
+            }
+
+            console.log(name);
+            console.log(age);
+            console.log(status);
+        }
+
+        continent();
+        console.log(global);
+        
+
+    </script>
+</body>
+
+</html>
