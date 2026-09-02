@@ -1,0 +1,22 @@
+<script>
+    function outter(){
+        let count = 0;
+
+        function inner(){
+            count++;
+            console.log(count);
+            
+        }
+
+        return inner;
+    }
+
+    const counter = outter();
+
+    counter();
+    counter();
+    counter();
+    
+
+
+</script>

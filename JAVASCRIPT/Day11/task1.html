@@ -1,0 +1,13 @@
+<script>
+    const add = (a,b,callback )=> {
+        const result = a + b;
+        callback(result)
+    };
+
+    const display = (data)=>{
+        console.log(`Result:${data}`);
+        
+    };
+
+    add(40, 50, display);
+</script>

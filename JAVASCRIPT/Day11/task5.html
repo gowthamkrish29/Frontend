@@ -1,0 +1,30 @@
+<script>
+    const array = [10, 20, 30];
+
+    
+
+    for(let i=array.length; i>2; i--){
+        array[i] = array[i-1];
+    }
+    
+    array[2] = 40;
+
+    console.log(array);
+    
+</script>
+
+
+<script>
+    const numbers = [10, 20, 30];
+
+    const newarray = [];
+
+    for(let i=0; i<numbers.length; i++){
+        newarray[i] = numbers[i]
+    }
+
+    const result = newarray[3] = 40;
+
+    console.log(newarray);
+    
+</script>
