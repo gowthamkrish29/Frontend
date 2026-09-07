@@ -1,0 +1,63 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: fantasy;
+}
+
+#image img {
+    width: 350px;
+    height: 500px;
+    margin: 20px;
+
+}
+
+#image {
+    margin: 20px;
+
+}
+
+#info {
+    padding: 10px;
+    font-weight: lighter;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    margin-bottom: 10px;
+}
+
+#info h1{
+    color: white;
+    font-weight: lighter;
+    padding-bottom: 10px
+}
+
+#info.show {
+    background-color: rgba(109, 194, 220, 0.898);
+    color: black;
+    opacity: 1;
+    max-height: 300px;
+    font-weight:lighter;
+    font-size: large;
+}
+
+button {
+    margin: 20px;
+    padding: 20px;
+    background-color: darkblue;
+    color: blanchedalmond;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bolder;
+}
+

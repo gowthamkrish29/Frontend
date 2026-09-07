@@ -1,0 +1,29 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-shadow: border-box  ;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: fantasy;
+}
+
+p{
+    background-color: red;
+    color: antiquewhite;
+    opacity: 0;
+    transition: opacity 3.5s ease;
+    margin: 20px;
+}
+
+p.show {
+    opacity: 1;
+}
+
+button{
+    margin: 20px;
+}
