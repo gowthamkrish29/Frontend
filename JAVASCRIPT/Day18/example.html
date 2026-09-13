@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage</title>
+</head>
+<body>
+    <script>
+        const item = {name:"Laptop" , price:70000};
+
+        const result = JSON.stringify(item);
+
+        localStorage.setItem("item" , result)
+
+        const result1 = localStorage.getItem("item");
+        
+        const item1 = JSON.parse(result1);
+
+        console.log(item1.name);
+        
+    </script>
+</body>
+</html>
