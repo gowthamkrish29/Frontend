@@ -1,0 +1,26 @@
+<script>
+    const promise = new Promise((resolve , reject)=>{
+
+        const name = true;
+
+        if(name){
+            resolve("Say My Name");
+            
+        } else {
+            reject("I know Nothindg");
+            
+        }
+    })
+
+    promise.then((result)=>{
+        console.log(result);
+    });
+
+    promise.catch((error)=>{
+        console.log(error);
+    });
+
+    promise.finally(()=>{
+        console.log("Process Completed"); 
+    });
+</script>

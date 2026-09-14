@@ -29,7 +29,7 @@ if(user){
 
     setTimeout(function(){
         window.location.href = "../../CSS/Day10/e-commerce.html";
-        error.textContent = "Login Suucessfull"
+        error.textContent = "Login Successfull"
         error.style.color = "green"
     }, 2000)
 

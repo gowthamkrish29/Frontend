@@ -1,0 +1,85 @@
+<script>
+    const userName = () => {
+        console.log('Gowtham');
+
+
+    }
+
+    const greet = (callBack) => {
+        console.log("Hello");
+        callBack();
+    };
+
+    greet(userName);
+</script>
+
+
+
+
+<script>
+
+    const number1 = (callBack) => {
+        setTimeout(() => {
+            console.log("Roll Number : 1 - Present");
+            callBack()
+        }, 3000)
+    };
+
+    const number2 = (callBack) => {
+        setTimeout(() => {
+            console.log("Roll Number : 2 - Absent");
+            callBack()
+        }, 3000)
+    };
+
+    number1(() => {
+        number2(() => {
+            setTimeout(() => {
+                console.log("Attendance Marked");
+            }, 3000)
+
+
+        });
+    });
+</script>
+
+<script>
+    const promise = new Promise((resolve, reject) => {
+
+        const name = true;
+
+        if (name) {
+            console.log("Say My Name");
+            setTimeout(()=>{
+                console.log("Heisenberg ,  You're goddamn right.");
+                
+            }, 1000)
+
+        } else {
+            console.log("I know nothing");
+
+        }
+
+    });
+
+
+</script>
+
+
+<script>
+    const call = new Promise((resolve, reject)=>{
+
+        const success = true;
+
+        if(success){
+            resolve("Data Loaded");
+        } else {
+            reject("Data Lost")
+        }
+    });
+
+    call.then((result)=>{
+        console.log(result);
+        
+    });
+</script>
