@@ -1,0 +1,28 @@
+1. What is React?
+
+React is a JavaScript library used to build user interfaces (UI), especially for web applications.
+
+It was created by Facebook (now Meta).
+
+For example, imagine a website has:
+
+Navbar
+Login form
+Product cards
+Shopping cart
+Footer
+
+React helps you build these parts as reusable components and update the UI efficiently.
+
+
+
+
+2. Is React a Library or Framework?
+
+React is a library.
+
+The important difference:
+
+Library
+
+A library usually focuses on a particular part of development.

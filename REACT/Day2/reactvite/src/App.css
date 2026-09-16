@@ -1,0 +1,48 @@
+h1{
+    background-color: red;
+    color: wheat;
+    text-align: center;
+    display: block;
+    width: 25%;
+}
+
+h2{
+    background-color: blue;
+    color: whitesmoke;
+    text-align: center;
+    display: block;
+    width: 25%;
+}
+
+
+button{
+    background-color: green;
+    color: black;
+    padding: 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: large;
+    font-weight: bolder;
+}
+
+button:hover{
+    background-color: yellow;
+    color: black;
+    transform: translateY(-10px);
+}
+
+h4{
+    width: 200px;
+    height: 30px;
+    background-color: darkkhaki;
+    color: brown;
+    padding: 20px;
+    margin: 20px;
+    border: none;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
