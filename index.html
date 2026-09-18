@@ -1,13 +1,20 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>⚡ Frontend Task Hub · Ultimate Dark Edition</title>
-<link href="https://fonts.googleapis.com" rel="preconnect">
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
-<style>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>⚡ Frontend Task Hub · Ultimate Dark Edition</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
         /* ────────────── RESET & DESIGN TOKENS ────────────── */
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -49,6 +56,31 @@
             line-height: 1.5;
         }
 
+        /* Animated aurora background */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: -20%;
+            background:
+                conic-gradient(from 0deg at 30% 40%, rgba(139, 92, 246, 0.08), transparent 25%),
+                conic-gradient(from 180deg at 70% 60%, rgba(56, 189, 248, 0.07), transparent 25%),
+                conic-gradient(from 90deg at 50% 50%, rgba(245, 158, 11, 0.05), transparent 25%);
+            z-index: 0;
+            pointer-events: none;
+            animation: aurora 24s linear infinite;
+            opacity: 0.9;
+        }
+
+        @keyframes aurora {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
         /* Ambient grid pattern */
         body::before {
             content: '';
@@ -64,10 +96,24 @@
         }
 
         /* ────────────── SCROLLBAR ────────────── */
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: #0b0f17; }
-        ::-webkit-scrollbar-thumb { background: #263147; border-radius: 8px; }
-        ::-webkit-scrollbar-thumb:hover { background: #3b4b6b; }
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0b0f17;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #263147, #3b4b6b);
+            border-radius: 10px;
+            border: 2px solid #0b0f17;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #38bdf8, #8b5cf6);
+        }
 
         /* ────────────── CONTAINER ────────────── */
         .hub-container {
@@ -95,6 +141,16 @@
             gap: 1.5rem;
             position: relative;
             overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+
+        .hero-section:hover {
+            transform: translateY(-3px);
+            border-color: rgba(56, 189, 248, 0.25);
+            box-shadow:
+                0 30px 60px -20px rgba(0, 0, 0, 0.75),
+                0 0 60px -20px rgba(56, 189, 248, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.12);
         }
 
         .hero-section::after {
@@ -105,6 +161,31 @@
             right: 20%;
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.5), rgba(245, 158, 11, 0.5), transparent);
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -30%;
+            width: 60%;
+            height: 200%;
+            background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            transform: rotate(15deg);
+            animation: heroShine 10s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes heroShine {
+
+            0%,
+            100% {
+                transform: translateX(-200%) rotate(15deg);
+            }
+
+            50% {
+                transform: translateX(400%) rotate(15deg);
+            }
         }
 
         .hero-badge {
@@ -120,6 +201,16 @@
             color: #7dd3fc;
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge:hover {
+            background: rgba(14, 165, 233, 0.18);
+            border-color: rgba(56, 189, 248, 0.5);
+            transform: translateY(-1px) scale(1.03);
+            box-shadow: 0 0 24px -4px rgba(56, 189, 248, 0.5);
         }
 
         .pulse-indicator {
@@ -132,8 +223,19 @@
         }
 
         @keyframes pulse-glow {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(0.85); }
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                box-shadow: 0 0 10px #10b981;
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(0.85);
+                box-shadow: 0 0 20px #10b981;
+            }
         }
 
         .hero-title {
@@ -142,14 +244,38 @@
             letter-spacing: -0.03em;
             line-height: 1.15;
             color: #ffffff;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), text-shadow 0.4s ease;
+        }
+
+        .hero-title:hover {
+            transform: scale(1.015);
+            text-shadow:
+                0 0 30px rgba(56, 189, 248, 0.35),
+                0 0 60px rgba(245, 158, 11, 0.2);
         }
 
         .hero-title span {
             background: linear-gradient(135deg, #fcd34d 0%, #f59e0b 50%, #fb923c 100%);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             display: inline-block;
+            animation: shimmerText 4s ease-in-out infinite;
+        }
+
+        @keyframes shimmerText {
+
+            0%,
+            100% {
+                background-position: 0% center;
+            }
+
+            50% {
+                background-position: 200% center;
+            }
         }
 
         .hero-subtitle {
@@ -157,6 +283,8 @@
             font-size: 1.05rem;
             color: var(--text-secondary);
             font-weight: 400;
+            position: relative;
+            z-index: 1;
         }
 
         /* ────────────── STATS GRID ────────────── */
@@ -167,6 +295,8 @@
             width: 100%;
             max-width: 900px;
             margin-top: 0.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .stat-card {
@@ -177,13 +307,33 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: default;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(56, 189, 248, 0.18), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
         }
 
         .stat-card:hover {
-            transform: translateY(-2px);
-            border-color: var(--border-highlight);
-            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-6px) scale(1.04);
+            border-color: rgba(56, 189, 248, 0.4);
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow:
+                0 12px 32px -8px rgba(0, 0, 0, 0.6),
+                0 0 30px -8px rgba(56, 189, 248, 0.35);
         }
 
         .stat-value {
@@ -191,6 +341,12 @@
             font-weight: 800;
             font-family: var(--font-mono);
             color: #f8fafc;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .stat-card:hover .stat-value {
+            color: #7dd3fc;
+            text-shadow: 0 0 20px rgba(56, 189, 248, 0.7);
         }
 
         .stat-label {
@@ -200,9 +356,14 @@
             text-transform: uppercase;
             letter-spacing: 0.8px;
             margin-top: 0.2rem;
+            transition: color 0.3s ease;
         }
 
-        /* ────────────── CONTROLS BAR: SEARCH & FILTERS ────────────── */
+        .stat-card:hover .stat-label {
+            color: var(--text-secondary);
+        }
+
+        /* ────────────── CONTROLS BAR ────────────── */
         .toolbar {
             display: flex;
             flex-wrap: wrap;
@@ -214,6 +375,12 @@
             border-radius: 20px;
             padding: 0.85rem 1.25rem;
             backdrop-filter: blur(16px);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .toolbar:hover {
+            border-color: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.5);
         }
 
         .search-box {
@@ -227,12 +394,18 @@
             flex: 1;
             min-width: 240px;
             max-width: 440px;
-            transition: border-color 0.2s, box-shadow 0.2s;
+            transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+        }
+
+        .search-box:hover {
+            border-color: rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.06);
         }
 
         .search-box:focus-within {
             border-color: #38bdf8;
-            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.18), 0 0 24px -8px rgba(56, 189, 248, 0.6);
+            transform: scale(1.01);
         }
 
         .search-box svg {
@@ -240,6 +413,12 @@
             height: 17px;
             color: var(--text-muted);
             flex-shrink: 0;
+            transition: color 0.25s ease, transform 0.25s ease;
+        }
+
+        .search-box:focus-within svg {
+            color: #38bdf8;
+            transform: scale(1.1) rotate(-8deg);
         }
 
         .search-box input {
@@ -273,24 +452,55 @@
             padding: 0.42rem 0.9rem;
             border-radius: 9999px;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.15), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .filter-btn:hover::before {
+            opacity: 1;
         }
 
         .filter-btn:hover {
             color: #fff;
             background: rgba(255, 255, 255, 0.08);
             border-color: var(--border-highlight);
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.5);
+        }
+
+        .filter-btn:active {
+            transform: translateY(0) scale(0.97);
         }
 
         .filter-btn.active {
-            background: #f8fafc;
+            background: linear-gradient(135deg, #f8fafc, #cbd5e1);
             color: #0b0f17;
             border-color: #f8fafc;
             font-weight: 700;
-            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.18);
+            box-shadow:
+                0 4px 12px rgba(255, 255, 255, 0.18),
+                0 0 24px -8px rgba(255, 255, 255, 0.6);
+        }
+
+        .filter-btn.active:hover {
+            transform: translateY(-2px) scale(1.06);
+            box-shadow:
+                0 8px 24px rgba(255, 255, 255, 0.25),
+                0 0 32px -6px rgba(255, 255, 255, 0.7);
         }
 
         /* ────────────── CARDS GRID ────────────── */
@@ -299,6 +509,7 @@
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 1.75rem;
             align-items: start;
+            perspective: 1400px;
         }
 
         /* ────────────── TECH CARD ────────────── */
@@ -310,13 +521,80 @@
             border: 1px solid var(--border-subtle);
             box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
             overflow: hidden;
-            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.5s ease,
+                border-color 0.4s ease;
+            position: relative;
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+
+        /* animated border glow */
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 24px;
+            background: conic-gradient(from var(--angle, 0deg),
+                    transparent 0%,
+                    rgba(56, 189, 248, 0.5) 10%,
+                    transparent 25%,
+                    transparent 50%,
+                    rgba(245, 158, 11, 0.5) 60%,
+                    transparent 75%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 0;
+            padding: 1px;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .tech-card:hover::before {
+            opacity: 1;
+            animation: rotateBorder 4s linear infinite;
+        }
+
+        @keyframes rotateBorder {
+            to {
+                --angle: 360deg;
+            }
+        }
+
+        @property --angle {
+            syntax: '<angle>';
+            initial-value: 0deg;
+            inherits: false;
+        }
+
+        /* spotlight follow */
+        .tech-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%),
+                    rgba(56, 189, 248, 0.08),
+                    transparent 40%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .tech-card:hover::after {
+            opacity: 1;
         }
 
         .tech-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--border-highlight);
-            box-shadow: 0 28px 56px -20px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            transform: translateY(-8px) rotateX(1.5deg) rotateY(-1.5deg);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow:
+                0 40px 70px -25px rgba(0, 0, 0, 0.9),
+                0 0 60px -20px rgba(56, 189, 248, 0.35),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
         /* ── Card Header ── */
@@ -327,6 +605,27 @@
             justify-content: space-between;
             position: relative;
             border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            z-index: 1;
+            overflow: hidden;
+            transition: padding 0.4s ease;
+        }
+
+        /* shine sweep on header hover */
+        .tech-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+            transform: skewX(-20deg);
+            transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+        }
+
+        .tech-card:hover .tech-header::after {
+            left: 150%;
         }
 
         .tech-header-left {
@@ -345,13 +644,30 @@
             font-size: 1.35rem;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+            position: relative;
         }
+
+        .tech-card:hover .tech-icon-wrapper {
+    /* transform is controlled by the spin animation — use glow instead */
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.5),
+        0 0 32px -4px rgba(255, 255, 255, 0.65),
+        0 0 60px -10px rgba(56, 189, 248, 0.5);
+    filter: brightness(1.15);
+}
 
         .tech-title {
             font-size: 1.25rem;
             font-weight: 700;
             color: #ffffff;
             letter-spacing: -0.01em;
+            transition: transform 0.4s ease, letter-spacing 0.4s ease;
+        }
+
+        .tech-card:hover .tech-title {
+            transform: translateX(3px);
+            letter-spacing: 0.01em;
         }
 
         .tech-task-pill {
@@ -364,31 +680,67 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             color: #e2e8f0;
             backdrop-filter: blur(4px);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .tech-card:hover .tech-task-pill {
+            transform: scale(1.08);
+            background: rgba(0, 0, 0, 0.6);
+            border-color: rgba(255, 255, 255, 0.25);
+            color: #fff;
+            box-shadow: 0 0 20px -4px rgba(255, 255, 255, 0.4);
         }
 
         /* Tech Specific Gradient Headers */
-        .header-html { background: linear-gradient(135deg, rgba(227, 79, 38, 0.25), rgba(227, 79, 38, 0.05)); }
-        .header-html .tech-icon-wrapper { background: #e34f26; }
+        .header-html {
+            background: linear-gradient(135deg, rgba(227, 79, 38, 0.25), rgba(227, 79, 38, 0.05));
+        }
 
-        .header-css { background: linear-gradient(135deg, rgba(37, 99, 235, 0.25), rgba(37, 99, 235, 0.05)); }
-        .header-css .tech-icon-wrapper { background: #2563eb; }
+        .header-html .tech-icon-wrapper {
+            background: #e34f26;
+        }
 
-        .header-bootstrap { background: linear-gradient(135deg, rgba(124, 77, 255, 0.25), rgba(124, 77, 255, 0.05)); }
-        .header-bootstrap .tech-icon-wrapper { background: #7c4dff; }
+        .header-css {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.25), rgba(37, 99, 235, 0.05));
+        }
 
-        .header-tailwind { background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(14, 116, 144, 0.05)); }
-        .header-tailwind .tech-icon-wrapper { background: #0284c7; }
+        .header-css .tech-icon-wrapper {
+            background: #2563eb;
+        }
 
-        .header-javascript { background: linear-gradient(135deg, rgba(247, 201, 72, 0.25), rgba(217, 119, 6, 0.05)); }
-        .header-javascript .tech-icon-wrapper { background: #d97706; color: #fff; }
+        .header-bootstrap {
+            background: linear-gradient(135deg, rgba(124, 77, 255, 0.25), rgba(124, 77, 255, 0.05));
+        }
 
-        .header-react { background: linear-gradient(135deg, rgba(132, 3, 207, 0.897), rgba(8, 145, 178, 0.05)); }
-        .header-react .tech-icon-wrapper { background: #0891b2; }
-        .header-react .spin { animation: spin 14s linear infinite; }
+        .header-bootstrap .tech-icon-wrapper {
+            background: #7c4dff;
+        }
 
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        .header-tailwind {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(14, 116, 144, 0.05));
+        }
+
+        .header-tailwind .tech-icon-wrapper {
+            background: #0284c7;
+        }
+
+        .header-javascript {
+            background: linear-gradient(135deg, rgba(247, 201, 72, 0.25), rgba(217, 119, 6, 0.05));
+        }
+
+        .header-javascript .tech-icon-wrapper {
+            background: #d97706;
+            color: #fff;
+        }
+
+        .header-react {
+            background: linear-gradient(135deg, rgba(132, 3, 207, 0.897), rgba(8, 145, 178, 0.05));
+        }
+
+        .header-react .tech-icon-wrapper {
+            background: #0891b2;
         }
 
         /* ── Day Groups Container ── */
@@ -397,6 +749,8 @@
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
+            position: relative;
+            z-index: 1;
         }
 
         /* ── Single Day Card ── */
@@ -405,12 +759,34 @@
             border: 1px solid rgba(255, 255, 255, 0.04);
             border-radius: 16px;
             padding: 0.85rem 1rem;
-            transition: all 0.2s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .day-block::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, transparent, var(--accent-blue), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .day-block:hover::before {
+            opacity: 1;
         }
 
         .day-block:hover {
-            background: rgba(255, 255, 255, 0.035);
-            border-color: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.045);
+            border-color: rgba(255, 255, 255, 0.12);
+            transform: translateX(6px) scale(1.008);
+            box-shadow:
+                -8px 0 24px -10px rgba(56, 189, 248, 0.4),
+                0 8px 24px -8px rgba(0, 0, 0, 0.5);
         }
 
         .day-block-header {
@@ -418,6 +794,7 @@
             align-items: center;
             justify-content: space-between;
             margin-bottom: 0.65rem;
+            transition: margin 0.3s ease;
         }
 
         .day-tag {
@@ -431,49 +808,174 @@
             padding: 0.2rem 0.75rem;
             border-radius: 9999px;
             border: 1px solid transparent;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .day-block:hover .day-tag {
+            transform: scale(1.06);
+            box-shadow: 0 0 20px -4px currentColor;
         }
 
         .dot-glow {
             width: 6px;
             height: 6px;
             border-radius: 50%;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .day-block:hover .dot-glow {
+            transform: scale(1.6);
         }
 
         /* Day tag color varieties */
-        .theme-red { background: rgba(239, 68, 68, 0.12); color: #f87171; border-color: rgba(239, 68, 68, 0.25); }
-        .theme-red .dot-glow { background: #f87171; box-shadow: 0 0 6px #f87171; }
+        .theme-red {
+            background: rgba(239, 68, 68, 0.12);
+            color: #f87171;
+            border-color: rgba(239, 68, 68, 0.25);
+        }
 
-        .theme-teal { background: rgba(20, 184, 166, 0.12); color: #2dd4bf; border-color: rgba(20, 184, 166, 0.25); }
-        .theme-teal .dot-glow { background: #2dd4bf; box-shadow: 0 0 6px #2dd4bf; }
+        .theme-red .dot-glow {
+            background: #f87171;
+            box-shadow: 0 0 6px #f87171;
+        }
 
-        .theme-blue { background: rgba(59, 130, 246, 0.12); color: #60a5fa; border-color: rgba(59, 130, 246, 0.25); }
-        .theme-blue .dot-glow { background: #60a5fa; box-shadow: 0 0 6px #60a5fa; }
+        .day-block:hover .theme-red .dot-glow {
+            box-shadow: 0 0 16px #f87171;
+        }
 
-        .theme-emerald { background: rgba(16, 185, 129, 0.12); color: #34d399; border-color: rgba(16, 185, 129, 0.25); }
-        .theme-emerald .dot-glow { background: #34d399; box-shadow: 0 0 6px #34d399; }
+        .theme-teal {
+            background: rgba(20, 184, 166, 0.12);
+            color: #2dd4bf;
+            border-color: rgba(20, 184, 166, 0.25);
+        }
 
-        .theme-amber { background: rgba(245, 158, 11, 0.12); color: #fbbf24; border-color: rgba(245, 158, 11, 0.25); }
-        .theme-amber .dot-glow { background: #fbbf24; box-shadow: 0 0 6px #fbbf24; }
+        .theme-teal .dot-glow {
+            background: #2dd4bf;
+            box-shadow: 0 0 6px #2dd4bf;
+        }
 
-        .theme-purple { background: rgba(168, 85, 247, 0.12); color: #c084fc; border-color: rgba(168, 85, 247, 0.25); }
-        .theme-purple .dot-glow { background: #c084fc; box-shadow: 0 0 6px #c084fc; }
+        .day-block:hover .theme-teal .dot-glow {
+            box-shadow: 0 0 16px #2dd4bf;
+        }
 
-        .theme-pink { background: rgba(244, 63, 94, 0.12); color: #fb7185; border-color: rgba(244, 63, 94, 0.25); }
-        .theme-pink .dot-glow { background: #fb7185; box-shadow: 0 0 6px #fb7185; }
+        .theme-blue {
+            background: rgba(59, 130, 246, 0.12);
+            color: #60a5fa;
+            border-color: rgba(59, 130, 246, 0.25);
+        }
 
-        .theme-cyan { background: rgba(6, 182, 212, 0.12); color: #22d3ee; border-color: rgba(6, 182, 212, 0.25); }
-        .theme-cyan .dot-glow { background: #22d3ee; box-shadow: 0 0 6px #22d3ee; }
+        .theme-blue .dot-glow {
+            background: #60a5fa;
+            box-shadow: 0 0 6px #60a5fa;
+        }
 
-        .theme-test { background: rgba(251, 191, 36, 0.15); color: #fde047; border-color: rgba(251, 191, 36, 0.35); }
-        .theme-test .dot-glow { background: #fde047; box-shadow: 0 0 8px #fde047; }
+        .day-block:hover .theme-blue .dot-glow {
+            box-shadow: 0 0 16px #60a5fa;
+        }
+
+        .theme-emerald {
+            background: rgba(16, 185, 129, 0.12);
+            color: #34d399;
+            border-color: rgba(16, 185, 129, 0.25);
+        }
+
+        .theme-emerald .dot-glow {
+            background: #34d399;
+            box-shadow: 0 0 6px #34d399;
+        }
+
+        .day-block:hover .theme-emerald .dot-glow {
+            box-shadow: 0 0 16px #34d399;
+        }
+
+        .theme-amber {
+            background: rgba(245, 158, 11, 0.12);
+            color: #fbbf24;
+            border-color: rgba(245, 158, 11, 0.25);
+        }
+
+        .theme-amber .dot-glow {
+            background: #fbbf24;
+            box-shadow: 0 0 6px #fbbf24;
+        }
+
+        .day-block:hover .theme-amber .dot-glow {
+            box-shadow: 0 0 16px #fbbf24;
+        }
+
+        .theme-purple {
+            background: rgba(168, 85, 247, 0.12);
+            color: #c084fc;
+            border-color: rgba(168, 85, 247, 0.25);
+        }
+
+        .theme-purple .dot-glow {
+            background: #c084fc;
+            box-shadow: 0 0 6px #c084fc;
+        }
+
+        .day-block:hover .theme-purple .dot-glow {
+            box-shadow: 0 0 16px #c084fc;
+        }
+
+        .theme-pink {
+            background: rgba(244, 63, 94, 0.12);
+            color: #fb7185;
+            border-color: rgba(244, 63, 94, 0.25);
+        }
+
+        .theme-pink .dot-glow {
+            background: #fb7185;
+            box-shadow: 0 0 6px #fb7185;
+        }
+
+        .day-block:hover .theme-pink .dot-glow {
+            box-shadow: 0 0 16px #fb7185;
+        }
+
+        .theme-cyan {
+            background: rgba(6, 182, 212, 0.12);
+            color: #22d3ee;
+            border-color: rgba(6, 182, 212, 0.25);
+        }
+
+        .theme-cyan .dot-glow {
+            background: #22d3ee;
+            box-shadow: 0 0 6px #22d3ee;
+        }
+
+        .day-block:hover .theme-cyan .dot-glow {
+            box-shadow: 0 0 16px #22d3ee;
+        }
+
+        .theme-test {
+            background: rgba(251, 191, 36, 0.15);
+            color: #fde047;
+            border-color: rgba(251, 191, 36, 0.35);
+        }
+
+        .theme-test .dot-glow {
+            background: #fde047;
+            box-shadow: 0 0 8px #fde047;
+        }
+
+        .day-block:hover .theme-test .dot-glow {
+            box-shadow: 0 0 18px #fde047;
+        }
 
         .day-count-badge {
             font-size: 0.68rem;
             color: var(--text-muted);
             font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
-        /* ── Task Links ── */
+        .day-block:hover .day-count-badge {
+            color: var(--text-secondary);
+            transform: translateX(-3px);
+        }
+
+        /* ── Task Links / Chips ── */
         .task-chips {
             display: flex;
             flex-wrap: wrap;
@@ -492,28 +994,55 @@
             display: inline-flex;
             align-items: center;
             gap: 0.35rem;
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        /* shine sweep on hover */
+        .task-chip::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 80%;
+            height: 100%;
+            background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+            transform: skewX(-20deg);
+            transition: left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+        }
+
+        .task-chip:hover::before {
+            left: 180%;
         }
 
         .task-chip .arrow-icon {
             font-size: 0.65rem;
             opacity: 0.4;
-            transition: transform 0.2s, opacity 0.2s;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, color 0.3s ease;
+            display: inline-block;
         }
 
         .task-chip:hover {
             color: #ffffff;
-            background: rgba(255, 255, 255, 0.09);
-            border-color: rgba(255, 255, 255, 0.18);
-            transform: translateY(-1.5px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            background: rgba(56, 189, 248, 0.14);
+            border-color: rgba(56, 189, 248, 0.5);
+            transform: translateY(-3px) scale(1.06);
+            box-shadow:
+                0 8px 20px -6px rgba(0, 0, 0, 0.6),
+                0 0 20px -4px rgba(56, 189, 248, 0.7);
         }
 
         .task-chip:hover .arrow-icon {
             opacity: 1;
-            transform: translateX(2px);
+            transform: translate(4px, -4px) scale(1.2);
             color: #38bdf8;
+        }
+
+        .task-chip:active {
+            transform: translateY(-1px) scale(1.02);
         }
 
         .task-chip.special-highlight {
@@ -524,14 +1053,27 @@
         }
 
         .task-chip.special-highlight:hover {
-            background: rgba(245, 158, 11, 0.2);
-            border-color: rgba(245, 158, 11, 0.45);
+            background: rgba(245, 158, 11, 0.25);
+            border-color: rgba(245, 158, 11, 0.6);
+            box-shadow:
+                0 8px 24px -6px rgba(0, 0, 0, 0.6),
+                0 0 24px -4px rgba(245, 158, 11, 0.8);
+            transform: translateY(-3px) scale(1.05);
         }
 
         .task-chip.test-chip {
             background: rgba(245, 158, 11, 0.08);
             border-color: rgba(245, 158, 11, 0.2);
             color: #fde047;
+        }
+
+        .task-chip.test-chip:hover {
+            background: rgba(245, 158, 11, 0.2);
+            border-color: rgba(245, 158, 11, 0.55);
+            color: #fff;
+            box-shadow:
+                0 8px 20px -6px rgba(0, 0, 0, 0.6),
+                0 0 22px -4px rgba(245, 158, 11, 0.75);
         }
 
         /* ── Coming Soon Banner ── */
@@ -545,6 +1087,13 @@
             font-weight: 600;
             border-top: 1px dashed rgba(255, 255, 255, 0.05);
             background: rgba(0, 0, 0, 0.15);
+            transition: color 0.3s ease, background 0.3s ease, letter-spacing 0.3s ease;
+        }
+
+        .tech-card:hover .coming-soon-banner {
+            color: var(--text-secondary);
+            background: rgba(0, 0, 0, 0.25);
+            letter-spacing: 2px;
         }
 
         /* ────────────── FOOTER ────────────── */
@@ -571,15 +1120,54 @@
             color: var(--text-secondary);
             font-family: var(--font-mono);
             font-size: 0.74rem;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
+        .footer-tag:hover {
+            transform: translateY(-2px) scale(1.04);
+            color: #fff;
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 8px 24px -8px rgba(56, 189, 248, 0.6);
+            background: rgba(56, 189, 248, 0.08);
+        }
+
+        /* ── All Tech Icons Rotate Continuously ── */
+        .tech-icon-wrapper {
+            animation: icon-spin 8s linear infinite;
+            transform-origin: center;
+            will-change: transform;
+        }
+
+        @keyframes icon-spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Speed up + glow on card hover */
+        .tech-card:hover .tech-icon-wrapper {
+            animation-duration: 2.2s;
+        }
+
+
+
 
         /* ────────────── RESPONSIVE ────────────── */
         @media (max-width: 980px) {
             .tech-grid {
                 grid-template-columns: 1fr;
             }
+
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tech-card:hover {
+                transform: translateY(-6px);
             }
         }
 
@@ -587,767 +1175,871 @@
             body {
                 padding: 1.25rem 0.85rem 3rem;
             }
+
             .hero-section {
                 padding: 1.75rem 1.25rem;
                 border-radius: 20px;
             }
+
             .stats-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 0.6rem;
             }
+
             .stat-value {
                 font-size: 1.4rem;
             }
+
             .toolbar {
                 flex-direction: column;
                 align-items: stretch;
             }
+
             .search-box {
                 max-width: 100%;
             }
+
             .filter-group {
                 justify-content: center;
             }
         }
+
+        /* Reduce motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
-<style>
-  /* ── Tech Icon Custom Animations ── */
-  .header-html .tech-icon-wrapper {
-    animation: html-float 3s ease-in-out infinite alternate;
-  }
-  @keyframes html-float {
-    0% { transform: translateY(0px); box-shadow: 0 4px 12px rgba(227, 79, 38, 0.3); }
-    100% { transform: translateY(-4px); box-shadow: 0 8px 18px rgba(227, 79, 38, 0.6); }
-  }
+</head>
 
-  .header-css .tech-icon-wrapper {
-    animation: css-wobble 4s ease-in-out infinite;
-  }
-  @keyframes css-wobble {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(-6deg) scale(1.02); }
-    75% { transform: rotate(6deg) scale(1.02); }
-  }
-
-  .header-javascript .tech-icon-wrapper {
-    animation: js-spark 2.5s ease-in-out infinite;
-  }
-  @keyframes js-spark {
-    0%, 100% { transform: scale(1); filter: brightness(1); }
-    50% { transform: scale(1.06); filter: brightness(1.25) drop-shadow(0 0 8px rgba(245, 158, 11, 0.7)); }
-  }
-
-  .header-tailwind .tech-icon-wrapper {
-    animation: tailwind-wave 3.5s ease-in-out infinite alternate;
-  }
-  @keyframes tailwind-wave {
-    0% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-3px) rotate(4deg); }
-    100% { transform: translateY(1px) rotate(-4deg); }
-  }
-
-  .header-bootstrap .tech-icon-wrapper {
-    animation: bootstrap-bounce 2.8s ease-in-out infinite;
-  }
-  @keyframes bootstrap-bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-5px); }
-    60% { transform: translateY(-2px); }
-  }
-</style></head>
 <body>
-<div class="hub-container">
-<!-- ═══════ HERO SECTION ═══════ -->
-<header class="hero-section">
-<div class="hero-badge">
-<span class="pulse-indicator"></span>
-<span class="">Full-Stack &amp; Frontend Curriculum</span>
-</div>
-<h1 class="hero-title">🚀 <span class="">FRONTEND</span> TASK HUB</h1>
-<p class="hero-subtitle">
-                A structured, production-ready directory of interactive exercises, real-world layouts, logical challenges, and full-stack milestones.
+    <div class="hub-container">
+        <!-- ═══════ HERO SECTION ═══════ -->
+        <header class="hero-section">
+            <div class="hero-badge">
+                <span class="pulse-indicator"></span>
+                <span>Full-Stack &amp; Frontend Curriculum</span>
+            </div>
+            <h1 class="hero-title">🚀 <span>FRONTEND</span> TASK HUB</h1>
+            <p class="hero-subtitle">
+                A structured, production-ready directory of interactive exercises, real-world layouts, logical
+                challenges, and full-stack milestones.
             </p>
-<!-- Quick Stats -->
-<div class="stats-grid">
-<div class="stat-card">
-<span class="stat-value" id="stat-total">185+</span>
-<span class="stat-label">Total Tasks</span>
-</div>
-<div class="stat-card">
-<span class="stat-value">6</span>
-<span class="stat-label">Technologies</span>
-</div>
-<div class="stat-card">
-<span class="stat-value">19</span>
-<span class="stat-label">Days Complete</span>
-</div>
-<div class="stat-card">
-<span class="stat-value">100%</span>
-<span class="stat-label">Organized</span>
-</div>
-</div>
-</header>
-<!-- ═══════ TOOLBAR: SEARCH & FILTERS ═══════ -->
-<section class="toolbar">
-<div class="search-box">
-<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-<input id="taskSearch" oninput="handleSearch(this.value)" placeholder="Search tasks, days, or exercises..." type="text">
-</div>
-<div class="filter-group">
-<button class="filter-btn active" onclick="filterTech('all', this)">All (6)</button>
-<button class="filter-btn" onclick="filterTech('html', this)">HTML</button>
-<button class="filter-btn" onclick="filterTech('css', this)">CSS</button>
-<button class="filter-btn" onclick="filterTech('javascript', this)">JavaScript</button>
-<button class="filter-btn" onclick="filterTech('tailwind', this)">Tailwind</button>
-<button class="filter-btn" onclick="filterTech('bootstrap', this)">Bootstrap</button>
-<button class="filter-btn" onclick="filterTech('react', this)">React</button>
-</div>
-</section>
-<!-- ═══════ TECH CARDS GRID ═══════ -->
-<main class="tech-grid" id="techGrid">
-<!-- ──────────── 1. HTML CARD ──────────── -->
-<article class="tech-card" data-tech="html" style="order: 1;">
-<div class="tech-header header-html">
-<div class="tech-header-left">
-<div class="tech-icon-wrapper spin">📄</div>
-<div>
-<h2 class="tech-title">HTML</h2>
-</div>
-</div>
-<span class="tech-task-pill">43 tasks</span>
-</div>
-<div class="day-groups-container">
-<!-- Day 1 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-red"><span class="dot-glow"></span>Day 1</span>
-<span class="day-count-badge">2 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="HTML/Day1/company.html" target="_blank">company<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day1/profile.html" target="_blank">profile<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Day 2 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-teal"><span class="dot-glow"></span>Day 2</span>
-<span class="day-count-badge">5 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="HTML/Day2/block.html" target="_blank">block<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day2/format.html" target="_blank">format<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day2/inline.html" target="_blank">inline<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day2/interactive.html" target="_blank">interactive<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day2/task5.html" target="_blank">task5<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Day 3 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-blue"><span class="dot-glow"></span>Day 3</span>
-<span class="day-count-badge">5 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="HTML/Day3/Task1.html" target="_blank">Task1<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day3/Task2.html" target="_blank">Task2<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day3/Task3.html" target="_blank">Task3<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day3/Task4.html" target="_blank">Task4<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day3/Task5.html" target="_blank">Task5<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Day 4 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-emerald"><span class="dot-glow"></span>Day 4</span>
-<span class="day-count-badge">6 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="HTML/Day4/Task1.html" target="_blank">Task1<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day4/Task2.html" target="_blank">Task2<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day4/Task3.html" target="_blank">Task3<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day4/Task4.html" target="_blank">Task4<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day4/Task5.html" target="_blank">Task5<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day4/my-favorite.html" target="_blank">my-favorite<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Day 5 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-amber"><span class="dot-glow"></span>Day 5</span>
-<span class="day-count-badge">2 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="HTML/Day5/IT-Companies/index.html" target="_blank">IT-Companies<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day5/Madhavaram-Constituency/index.html" target="_blank">Madhavaram<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Day 6 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-purple"><span class="dot-glow"></span>Day 6</span>
-<span class="day-count-badge">5 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="HTML/Day6/form/applicatio.html" target="_blank">application<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day6/form/contact.html" target="_blank">contact<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day6/form/feedback.html" target="_blank">feedback<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day6/form/login.html" target="_blank">login<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day6/form/registration.html" target="_blank">registration<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Day 7 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-pink"><span class="dot-glow"></span>Day 7</span>
-<span class="day-count-badge">5 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="HTML/Day7/table/college.html" target="_blank">college<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day7/table/employee.html" target="_blank">employee<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day7/table/hospital.html" target="_blank">hospital<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day7/table/product.html" target="_blank">product<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day7/table/student.html" target="_blank">student<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Day 8 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-cyan"><span class="dot-glow"></span>Day 8</span>
-<span class="day-count-badge">5 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="HTML/Day8/meta/admission.html" target="_blank">admission<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day8/meta/doctype.html" target="_blank">doctype<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day8/meta/head-section.html" target="_blank">head-section<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day8/meta/portfolio.html" target="_blank">portfolio<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day8/meta/travel-website.html" target="_blank">travel<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Day 9 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-red"><span class="dot-glow"></span>Day 9</span>
-<span class="day-count-badge">6 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="HTML/Day9/Media-tags/audio.html" target="_blank">audio<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day9/Media-tags/iframe.html" target="_blank">iframe<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day9/Media-tags/image-gallery.html" target="_blank">gallery<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day9/Media-tags/media-showcase.html" target="_blank">showcase<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day9/Media-tags/video.html" target="_blank">video<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="HTML/Day9/Media-tags/youtube.html" target="_blank">youtube<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-</div>
-</article>
-<!-- ──────────── 2. CSS CARD ──────────── -->
-<article class="tech-card" data-tech="css" style="order: 2;">
-<div class="tech-header header-css">
-<div class="tech-header-left">
-<div class="tech-icon-wrapper spin">🎨</div>
-<div>
-<h2 class="tech-title">CSS</h2>
-</div>
-</div>
-<span class="tech-task-pill">50+ tasks</span>
-</div>
-<div class="day-groups-container">
-<!-- Day 1 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-red"><span class="dot-glow"></span>Day 1</span>
-<span class="day-count-badge">6 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="CSS/Day1/profile.html" target="_blank">profile<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day1/college.html" target="_blank">college<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day1/challenge.html" target="_blank">challenge<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day1/company.html" target="_blank">company<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day1/favorite.html" target="_blank">favorite<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day1/student.html" target="_blank">student<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Day 2 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-teal"><span class="dot-glow"></span>Day 2</span>
-<span class="day-count-badge">6 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="CSS/Day2/chennai.html" target="_blank">chennai<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day2/engineering.html" target="_blank">engineering<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day2/hospital.html" target="_blank">hospital<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day2/IT-company.html" target="_blank">IT-company<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day2/movie.html" target="_blank">movie<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day2/student-profile.html" target="_blank">student-profile<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Day 3 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-blue"><span class="dot-glow"></span>Day 3</span>
-<span class="day-count-badge">6 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="CSS/Day3/box.html" target="_blank">box<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day3/challenge.html" target="_blank">challenge<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day3/employee.html" target="_blank">employee<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day3/news.html" target="_blank">news<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day3/product.html" target="_blank">product<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day3/student.html" target="_blank">student<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Day 4 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-emerald"><span class="dot-glow"></span>Day 4</span>
-<span class="day-count-badge">5 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="CSS/Day4/card.html" target="_blank">card<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day4/display-flex.html" target="_blank">display-flex<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day4/display-property.html" target="_blank">display-property<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day4/displya-none.html" target="_blank">displya-none<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day4/inline-block.html" target="_blank">inline-block<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Day 5 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-amber"><span class="dot-glow"></span>Day 5</span>
-<span class="day-count-badge">4 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="CSS/Day5/about.html" target="_blank">about<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day5/contact.html" target="_blank">contact<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day5/index.html" target="_blank">index<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day5/movies-webseries.html" target="_blank">movies<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Day 6 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-purple"><span class="dot-glow"></span>Day 6</span>
-<span class="day-count-badge">5 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="CSS/Day6/absolute.html" target="_blank">absolute<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day6/positions.html" target="_blank">positions<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day6/relative.html" target="_blank">relative<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day6/sticky.html" target="_blank">sticky<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day6/whatsapp.html" target="_blank">whatsapp<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Day 7 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-pink"><span class="dot-glow"></span>Day 7</span>
-<span class="day-count-badge">4 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="CSS/Day7/company.html" target="_blank">company<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day7/image-gallery.html" target="_blank">image-gallery<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day7/product.html" target="_blank">product<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day7/student-dashboard.html" target="_blank">student-dashboard<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Day 8 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-cyan"><span class="dot-glow"></span>Day 8</span>
-<span class="day-count-badge">5 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="CSS/Day8/before-after.html" target="_blank">before-after<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day8/button.html" target="_blank">button<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day8/paragraph.html" target="_blank">paragraph<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day8/student-form.html" target="_blank">student-form<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day8/student-list.html" target="_blank">student-list<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Day 9 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-teal"><span class="dot-glow"></span>Day 9</span>
-<span class="day-count-badge">5 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="CSS/Day9/button-hover.html" target="_blank">button-hover<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day9/company.html" target="_blank">company<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day9/image-gallery.html" target="_blank">image-gallery<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day9/product-card.html" target="_blank">product-card<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day9/student-card.html" target="_blank">student-card<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Day 10 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-emerald"><span class="dot-glow"></span>Day 10</span>
-<span class="day-count-badge">6 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="CSS/Day10/company.html" target="_blank">company<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day10/e-commerce.html" target="_blank">e-commerce<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day10/portfolio.html" target="_blank">portfolio<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day10/res-product-card.html" target="_blank">res-product<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day10/responsive-card.html" target="_blank">responsive-card<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="CSS/Day10/service.html" target="_blank">service<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Test CSS -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-test"><span class="dot-glow"></span>🧪 Assessment</span>
-<span class="day-count-badge">4 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip test-chip" href="CSS/Test-CSS/employee.html" target="_blank">employee<span class="arrow-icon">↗</span></a>
-<a class="task-chip test-chip" href="CSS/Test-CSS/nav-bar.html" target="_blank">nav-bar<span class="arrow-icon">↗</span></a>
-<a class="task-chip test-chip" href="CSS/Test-CSS/portfolio.html" target="_blank">portfolio<span class="arrow-icon">↗</span></a>
-<a class="task-chip test-chip" href="CSS/Test-CSS/product.html" target="_blank">product<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-</div>
-</article>
-<!-- ──────────── 3. JAVASCRIPT CARD ──────────── -->
-<article class="tech-card" data-tech="javascript" style="order: 5;">
-<div class="tech-header header-javascript">
-<div class="tech-header-left">
-<div class="tech-icon-wrapper spin">⚡</div>
-<div>
-<h2 class="tech-title">JavaScript</h2>
-</div>
-</div>
-<span class="tech-task-pill">80+ tasks</span>
-</div>
-<div class="day-groups-container">
-<!-- Day 1 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-amber"><span class="dot-glow"></span>Day 1</span>
-<span class="day-count-badge">1 task</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="JAVASCRIPT/Day1/var.txt" target="_blank">variables<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Day 2 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-amber"><span class="dot-glow"></span>Day 2</span>
-<span class="day-count-badge">5 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="JAVASCRIPT/Day2/task1.html" target="_blank">task1<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="JAVASCRIPT/Day2/task2.html" target="_blank">task2<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="JAVASCRIPT/Day2/task3.html" target="_blank">task3<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="JAVASCRIPT/Day2/task4.html" target="_blank">task4<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="JAVASCRIPT/DAY2/day2-notes.md" target="_blank">notes<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Day 3 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-amber"><span class="dot-glow"></span>Day 3</span>
-<span class="day-count-badge">6 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="JAVASCRIPT/Day3/task1.html" target="_blank">task1<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="JAVASCRIPT/Day3/task2.html" target="_blank">task2<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="JAVASCRIPT/Day3/task3.html" target="_blank">task3<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="JAVASCRIPT/Day3/task4.html" target="_blank">task4<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="JAVASCRIPT/Day3/task5.html" target="_blank">task5<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="JAVASCRIPT/Day3/day3-notes.txt" target="_blank">notes<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Day 4 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-amber"><span class="dot-glow"></span>Day 4</span>
-<span class="day-count-badge">5 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="JAVASCRIPT/Day4/task1.html" target="_blank">task1<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="JAVASCRIPT/Day4/task2.html" target="_blank">task2<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="JAVASCRIPT/Day4/task3.html" target="_blank">task3<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="JAVASCRIPT/Day4/task4.html" target="_blank">task4<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="JAVASCRIPT/Day4/task5.html" target="_blank">task5<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Day 5 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-amber"><span class="dot-glow"></span>Day 5</span>
-<span class="day-count-badge">10 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="JAVASCRIPT/Day5/task1.html" target="_blank">Task 1 → 10<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Day 6 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-amber"><span class="dot-glow"></span>Day 6</span>
-<span class="day-count-badge">10 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="JAVASCRIPT/Day6/tasks.html" target="_blank">Task 1 → 10<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Day 7 & 8 & 9 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-amber"><span class="dot-glow"></span>Day 7–9</span>
-<span class="day-count-badge">20+ tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="JAVASCRIPT/Day7/task.html" target="_blank">Day 7 Tasks<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="JAVASCRIPT/Day8/task.html" target="_blank">Day 8 Tasks<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="JAVASCRIPT/Day9/task.html" target="_blank">Day 9 Tasks<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<!-- Day 10 (Mega Set) -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-amber"><span class="dot-glow"></span>Day 10 (Milestone)</span>
-<span class="day-count-badge">25 tasks</span>
-</div>
-<div style="margin-bottom: 0.5rem;">
-<a class="task-chip special-highlight" href="JAVASCRIPT/Day10/Website/index.html" style="width: 100%; justify-content: center; margin-bottom: 0.4rem;" target="_blank">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-value" id="stat-total">185+</span>
+                    <span class="stat-label">Total Tasks</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">6</span>
+                    <span class="stat-label">Technologies</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">19</span>
+                    <span class="stat-label">Days Complete</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">100%</span>
+                    <span class="stat-label">Organized</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- ═══════ TOOLBAR ═══════ -->
+        <section class="toolbar">
+            <div class="search-box">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2"></path>
+                </svg>
+                <input id="taskSearch" oninput="handleSearch(this.value)"
+                    placeholder="Search tasks, days, or exercises..." type="text">
+            </div>
+            <div class="filter-group">
+                <button class="filter-btn active" onclick="filterTech('all', this)">All (6)</button>
+                <button class="filter-btn" onclick="filterTech('html', this)">HTML</button>
+                <button class="filter-btn" onclick="filterTech('css', this)">CSS</button>
+                <button class="filter-btn" onclick="filterTech('javascript', this)">JavaScript</button>
+                <button class="filter-btn" onclick="filterTech('tailwind', this)">Tailwind</button>
+                <button class="filter-btn" onclick="filterTech('bootstrap', this)">Bootstrap</button>
+                <button class="filter-btn" onclick="filterTech('react', this)">React</button>
+            </div>
+        </section>
+
+        <!-- ═══════ TECH CARDS GRID ═══════ -->
+        <main class="tech-grid" id="techGrid">
+
+            <!-- HTML CARD -->
+            <article class="tech-card" data-tech="html" style="order: 1;">
+                <div class="tech-header header-html">
+                    <div class="tech-header-left">
+                        <div class="tech-icon-wrapper">📄</div>
+                        <div>
+                            <h2 class="tech-title">HTML</h2>
+                        </div>
+                    </div>
+                    <span class="tech-task-pill">43 tasks</span>
+                </div>
+                <div class="day-groups-container">
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-red"><span class="dot-glow"></span>Day 1</span>
+                            <span class="day-count-badge">2 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="HTML/Day1/company.html" target="_blank">company<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day1/profile.html" target="_blank">profile<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-teal"><span class="dot-glow"></span>Day 2</span>
+                            <span class="day-count-badge">5 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="HTML/Day2/block.html" target="_blank">block<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day2/format.html" target="_blank">format<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day2/inline.html" target="_blank">inline<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day2/interactive.html" target="_blank">interactive<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day2/task5.html" target="_blank">task5<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-blue"><span class="dot-glow"></span>Day 3</span>
+                            <span class="day-count-badge">5 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="HTML/Day3/Task1.html" target="_blank">Task1<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day3/Task2.html" target="_blank">Task2<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day3/Task3.html" target="_blank">Task3<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day3/Task4.html" target="_blank">Task4<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day3/Task5.html" target="_blank">Task5<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-emerald"><span class="dot-glow"></span>Day 4</span>
+                            <span class="day-count-badge">6 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="HTML/Day4/Task1.html" target="_blank">Task1<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day4/Task2.html" target="_blank">Task2<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day4/Task3.html" target="_blank">Task3<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day4/Task4.html" target="_blank">Task4<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day4/Task5.html" target="_blank">Task5<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day4/my-favorite.html" target="_blank">my-favorite<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-amber"><span class="dot-glow"></span>Day 5</span>
+                            <span class="day-count-badge">2 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="HTML/Day5/IT-Companies/index.html"
+                                target="_blank">IT-Companies<span class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day5/Madhavaram-Constituency/index.html"
+                                target="_blank">Madhavaram<span class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-purple"><span class="dot-glow"></span>Day 6</span>
+                            <span class="day-count-badge">5 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="HTML/Day6/form/applicatio.html" target="_blank">application<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day6/form/contact.html" target="_blank">contact<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day6/form/feedback.html" target="_blank">feedback<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day6/form/login.html" target="_blank">login<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day6/form/registration.html"
+                                target="_blank">registration<span class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-pink"><span class="dot-glow"></span>Day 7</span>
+                            <span class="day-count-badge">5 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="HTML/Day7/table/college.html" target="_blank">college<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day7/table/employee.html" target="_blank">employee<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day7/table/hospital.html" target="_blank">hospital<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day7/table/product.html" target="_blank">product<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day7/table/student.html" target="_blank">student<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-cyan"><span class="dot-glow"></span>Day 8</span>
+                            <span class="day-count-badge">5 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="HTML/Day8/meta/admission.html" target="_blank">admission<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day8/meta/doctype.html" target="_blank">doctype<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day8/meta/head-section.html"
+                                target="_blank">head-section<span class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day8/meta/portfolio.html" target="_blank">portfolio<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day8/meta/travel-website.html" target="_blank">travel<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-red"><span class="dot-glow"></span>Day 9</span>
+                            <span class="day-count-badge">6 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="HTML/Day9/Media-tags/audio.html" target="_blank">audio<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day9/Media-tags/iframe.html" target="_blank">iframe<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day9/Media-tags/image-gallery.html"
+                                target="_blank">gallery<span class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day9/Media-tags/media-showcase.html"
+                                target="_blank">showcase<span class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day9/Media-tags/video.html" target="_blank">video<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="HTML/Day9/Media-tags/youtube.html" target="_blank">youtube<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- CSS CARD -->
+            <article class="tech-card" data-tech="css" style="order: 2;">
+                <div class="tech-header header-css">
+                    <div class="tech-header-left">
+                        <div class="tech-icon-wrapper">🎨</div>
+                        <div>
+                            <h2 class="tech-title">CSS</h2>
+                        </div>
+                    </div>
+                    <span class="tech-task-pill">50+ tasks</span>
+                </div>
+                <div class="day-groups-container">
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-red"><span class="dot-glow"></span>Day 1</span>
+                            <span class="day-count-badge">6 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="CSS/Day1/profile.html" target="_blank">profile<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day1/college.html" target="_blank">college<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day1/challenge.html" target="_blank">challenge<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day1/company.html" target="_blank">company<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day1/favorite.html" target="_blank">favorite<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day1/student.html" target="_blank">student<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-teal"><span class="dot-glow"></span>Day 2</span>
+                            <span class="day-count-badge">6 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="CSS/Day2/chennai.html" target="_blank">chennai<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day2/engineering.html" target="_blank">engineering<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day2/hospital.html" target="_blank">hospital<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day2/IT-company.html" target="_blank">IT-company<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day2/movie.html" target="_blank">movie<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day2/student-profile.html"
+                                target="_blank">student-profile<span class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-blue"><span class="dot-glow"></span>Day 3</span>
+                            <span class="day-count-badge">6 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="CSS/Day3/box.html" target="_blank">box<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day3/challenge.html" target="_blank">challenge<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day3/employee.html" target="_blank">employee<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day3/news.html" target="_blank">news<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day3/product.html" target="_blank">product<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day3/student.html" target="_blank">student<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-emerald"><span class="dot-glow"></span>Day 4</span>
+                            <span class="day-count-badge">5 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="CSS/Day4/card.html" target="_blank">card<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day4/display-flex.html" target="_blank">display-flex<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day4/display-property.html"
+                                target="_blank">display-property<span class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day4/displya-none.html" target="_blank">displya-none<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day4/inline-block.html" target="_blank">inline-block<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-amber"><span class="dot-glow"></span>Day 5</span>
+                            <span class="day-count-badge">4 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="CSS/Day5/about.html" target="_blank">about<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day5/contact.html" target="_blank">contact<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day5/index.html" target="_blank">index<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day5/movies-webseries.html" target="_blank">movies<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-purple"><span class="dot-glow"></span>Day 6</span>
+                            <span class="day-count-badge">5 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="CSS/Day6/absolute.html" target="_blank">absolute<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day6/positions.html" target="_blank">positions<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day6/relative.html" target="_blank">relative<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day6/sticky.html" target="_blank">sticky<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day6/whatsapp.html" target="_blank">whatsapp<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-pink"><span class="dot-glow"></span>Day 7</span>
+                            <span class="day-count-badge">4 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="CSS/Day7/company.html" target="_blank">company<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day7/image-gallery.html" target="_blank">image-gallery<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day7/product.html" target="_blank">product<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day7/student-dashboard.html"
+                                target="_blank">student-dashboard<span class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-cyan"><span class="dot-glow"></span>Day 8</span>
+                            <span class="day-count-badge">5 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="CSS/Day8/before-after.html" target="_blank">before-after<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day8/button.html" target="_blank">button<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day8/paragraph.html" target="_blank">paragraph<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day8/student-form.html" target="_blank">student-form<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day8/student-list.html" target="_blank">student-list<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-teal"><span class="dot-glow"></span>Day 9</span>
+                            <span class="day-count-badge">5 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="CSS/Day9/button-hover.html" target="_blank">button-hover<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day9/company.html" target="_blank">company<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day9/image-gallery.html" target="_blank">image-gallery<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day9/product-card.html" target="_blank">product-card<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day9/student-card.html" target="_blank">student-card<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-emerald"><span class="dot-glow"></span>Day 10</span>
+                            <span class="day-count-badge">6 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="CSS/Day10/company.html" target="_blank">company<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day10/e-commerce.html" target="_blank">e-commerce<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day10/portfolio.html" target="_blank">portfolio<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day10/res-product-card.html" target="_blank">res-product<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day10/responsive-card.html"
+                                target="_blank">responsive-card<span class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="CSS/Day10/service.html" target="_blank">service<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-test"><span class="dot-glow"></span>🧪 Assessment</span>
+                            <span class="day-count-badge">4 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip test-chip" href="CSS/Test-CSS/employee.html"
+                                target="_blank">employee<span class="arrow-icon">↗</span></a>
+                            <a class="task-chip test-chip" href="CSS/Test-CSS/nav-bar.html" target="_blank">nav-bar<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip test-chip" href="CSS/Test-CSS/portfolio.html"
+                                target="_blank">portfolio<span class="arrow-icon">↗</span></a>
+                            <a class="task-chip test-chip" href="CSS/Test-CSS/product.html" target="_blank">product<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- JAVASCRIPT CARD -->
+            <article class="tech-card" data-tech="javascript" style="order: 5;">
+                <div class="tech-header header-javascript">
+                    <div class="tech-header-left">
+                        <div class="tech-icon-wrapper">⚡</div>
+                        <div>
+                            <h2 class="tech-title">JavaScript</h2>
+                        </div>
+                    </div>
+                    <span class="tech-task-pill">80+ tasks</span>
+                </div>
+                <div class="day-groups-container">
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-amber"><span class="dot-glow"></span>Day 1</span>
+                            <span class="day-count-badge">1 task</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="JAVASCRIPT/Day1/var.txt" target="_blank">variables<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-amber"><span class="dot-glow"></span>Day 2</span>
+                            <span class="day-count-badge">5 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="JAVASCRIPT/Day2/task1.html" target="_blank">task1<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="JAVASCRIPT/Day2/task2.html" target="_blank">task2<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="JAVASCRIPT/Day2/task3.html" target="_blank">task3<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="JAVASCRIPT/Day2/task4.html" target="_blank">task4<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="JAVASCRIPT/DAY2/day2-notes.md" target="_blank">notes<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-amber"><span class="dot-glow"></span>Day 3</span>
+                            <span class="day-count-badge">6 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="JAVASCRIPT/Day3/task1.html" target="_blank">task1<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="JAVASCRIPT/Day3/task2.html" target="_blank">task2<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="JAVASCRIPT/Day3/task3.html" target="_blank">task3<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="JAVASCRIPT/Day3/task4.html" target="_blank">task4<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="JAVASCRIPT/Day3/task5.html" target="_blank">task5<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="JAVASCRIPT/Day3/day3-notes.txt" target="_blank">notes<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-amber"><span class="dot-glow"></span>Day 4</span>
+                            <span class="day-count-badge">5 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="JAVASCRIPT/Day4/task1.html" target="_blank">task1<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="JAVASCRIPT/Day4/task2.html" target="_blank">task2<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="JAVASCRIPT/Day4/task3.html" target="_blank">task3<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="JAVASCRIPT/Day4/task4.html" target="_blank">task4<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="JAVASCRIPT/Day4/task5.html" target="_blank">task5<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-amber"><span class="dot-glow"></span>Day 5</span>
+                            <span class="day-count-badge">10 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="JAVASCRIPT/Day5/task1.html" target="_blank">Task 1 → 10<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-amber"><span class="dot-glow"></span>Day 6</span>
+                            <span class="day-count-badge">10 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="JAVASCRIPT/Day6/tasks.html" target="_blank">Task 1 → 10<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-amber"><span class="dot-glow"></span>Day 7–9</span>
+                            <span class="day-count-badge">20+ tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="JAVASCRIPT/Day7/task.html" target="_blank">Day 7 Tasks<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="JAVASCRIPT/Day8/task.html" target="_blank">Day 8 Tasks<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="JAVASCRIPT/Day9/task.html" target="_blank">Day 9 Tasks<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-amber"><span class="dot-glow"></span>Day 10 (Milestone)</span>
+                            <span class="day-count-badge">25 tasks</span>
+                        </div>
+                        <div style="margin-bottom: 0.5rem;">
+                            <a class="task-chip special-highlight" href="JAVASCRIPT/Day10/Website/index.html"
+                                style="width: 100%; justify-content: center; margin-bottom: 0.4rem;" target="_blank">
                                 🌟 Interactive JS Learning Portal <span class="arrow-icon">↗</span>
-</a>
-</div>
-<div class="task-chips" style="margin-bottom: 0.4rem;">
-<a class="task-chip" href="JAVASCRIPT/Day10/Tasks/task1.html" target="_blank">Task1</a>
-<a class="task-chip" href="JAVASCRIPT/Day10/Tasks/task2.html" target="_blank">Task2</a>
-<a class="task-chip" href="JAVASCRIPT/Day10/Tasks/task3.html" target="_blank">Task3</a>
-<a class="task-chip" href="JAVASCRIPT/Day10/Tasks/task4.html" target="_blank">Task4</a>
-<a class="task-chip" href="JAVASCRIPT/Day10/Tasks/task5.html" target="_blank">Task5</a>
-<a class="task-chip" href="JAVASCRIPT/Day10/Tasks/task6.html" target="_blank">Task6</a>
-<a class="task-chip" href="JAVASCRIPT/Day10/Tasks/task7.html" target="_blank">Task7</a>
-<a class="task-chip" href="JAVASCRIPT/Day10/Tasks/task8.html" target="_blank">Task8</a>
-<a class="task-chip" href="JAVASCRIPT/Day10/Tasks/task9.html" target="_blank">Task9</a>
-<a class="task-chip" href="JAVASCRIPT/Day10/Tasks/task10.html" target="_blank">Task10</a>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="JAVASCRIPT/Day10/Logical-Tasks/arr-obj.html" target="_blank">Logical-1</a>
-<a class="task-chip" href="JAVASCRIPT/Day10/Logical-Tasks/arrats.html" target="_blank">Logical-2</a>
-<a class="task-chip" href="JAVASCRIPT/Day10/Logical-Tasks/factorial.html" target="_blank">Logical-3</a>
-<a class="task-chip" href="JAVASCRIPT/Day10/Logical-Tasks/highest.html" target="_blank">Logical-4</a>
-<a class="task-chip" href="JAVASCRIPT/Day10/Logical-Tasks/largest.html" target="_blank">Logical-5</a>
-<a class="task-chip" href="JAVASCRIPT/Day10/Logical-Tasks/odd-even.html" target="_blank">Logical-6</a>
-<a class="task-chip" href="JAVASCRIPT/Day10/Logical-Tasks/palindrome.html" target="_blank">Logical-7</a>
-<a class="task-chip" href="JAVASCRIPT/Day10/Logical-Tasks/reverse.html" target="_blank">Logical-8</a>
-<a class="task-chip" href="JAVASCRIPT/Day10/Logical-Tasks/sum-of-numbers.html" target="_blank">Logical-9</a>
-<a class="task-chip" href="JAVASCRIPT/Day10/Logical-Tasks/vowels.html" target="_blank">Logical-10</a>
-</div>
-</div>
-<!-- JS Test -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-test"><span class="dot-glow"></span>🧪 JS Comprehensive Test</span>
-<span class="day-count-badge">14 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip test-chip" href="JAVASCRIPT/Test/one.html" target="_blank">Q1</a>
-<a class="task-chip test-chip" href="JAVASCRIPT/Test/two.html" target="_blank">Q2</a>
-<a class="task-chip test-chip" href="JAVASCRIPT/Test/three.html" target="_blank">Q3</a>
-<a class="task-chip test-chip" href="JAVASCRIPT/Test/four.html" target="_blank">Q4</a>
-<a class="task-chip test-chip" href="JAVASCRIPT/Test/five.html" target="_blank">Q5</a>
-<a class="task-chip test-chip" href="JAVASCRIPT/Test/six.html" target="_blank">Q6</a>
-<a class="task-chip test-chip" href="JAVASCRIPT/Test/seven.html" target="_blank">Q7</a>
-<a class="task-chip test-chip" href="JAVASCRIPT/Test/eigth.html" target="_blank">Q8</a>
-<a class="task-chip test-chip" href="JAVASCRIPT/Test/nine.html" target="_blank">Q9</a>
-<a class="task-chip test-chip" href="JAVASCRIPT/Test/ten.html" target="_blank">Q10</a>
-<a class="task-chip test-chip" href="JAVASCRIPT/Test/eleven.html" target="_blank">Q11</a>
-<a class="task-chip test-chip" href="JAVASCRIPT/Test/twelve.html" target="_blank">Q12</a>
-<a class="task-chip test-chip" href="JAVASCRIPT/Test/thirteen.html" target="_blank">Q13</a>
-<a class="task-chip test-chip" href="JAVASCRIPT/Test/fourteen.html" target="_blank">Q14</a>
-</div>
-</div>
-<!-- Day 11, 12, 13 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-amber"><span class="dot-glow"></span>Day 11–13</span>
-<span class="day-count-badge">13 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="JAVASCRIPT/Day11/task1.html" target="_blank">D11-T1</a>
-<a class="task-chip" href="JAVASCRIPT/Day11/task2.html" target="_blank">D11-T2</a>
-<a class="task-chip" href="JAVASCRIPT/Day11/task3.html" target="_blank">D11-T3</a>
-<a class="task-chip" href="JAVASCRIPT/Day11/task4.html" target="_blank">D11-T4</a>
-<a class="task-chip" href="JAVASCRIPT/Day11/task5.html" target="_blank">D11-T5</a>
-<a class="task-chip" href="JAVASCRIPT/Day11/task6.html" target="_blank">D11-T6</a>
-<a class="task-chip" href="JAVASCRIPT/Day12/task1.html" target="_blank">D12-T1</a>
-<a class="task-chip" href="JAVASCRIPT/Day12/task2.html" target="_blank">D12-T2</a>
-<a class="task-chip" href="JAVASCRIPT/Day12/task3.html" target="_blank">D12-T3</a>
-<a class="task-chip" href="JAVASCRIPT/Day12/task4.html" target="_blank">D12-T4</a>
-<a class="task-chip" href="JAVASCRIPT/Day12/task5.html" target="_blank">D12-T5</a>
-<a class="task-chip" href="JAVASCRIPT/Day13/index.html" target="_blank">D13 Tasks 1&amp;2</a>
-</div>
-</div>
-<!-- Day 15, 16, 17, 18, 19 -->
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-amber"><span class="dot-glow"></span>Day 15–19</span>
-<span class="day-count-badge">17 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="JAVASCRIPT/Day15/task1.html" target="_blank">D15-T1</a>
-<a class="task-chip" href="JAVASCRIPT/Day15/task2.html" target="_blank">D15-T2</a>
-<a class="task-chip" href="JAVASCRIPT/Day15/task3.html" target="_blank">D15-T3</a>
-<a class="task-chip" href="JAVASCRIPT/Day16/task1.html" target="_blank">D16-T1</a>
-<a class="task-chip" href="JAVASCRIPT/Day16/task2.html" target="_blank">D16-T2</a>
-<a class="task-chip" href="JAVASCRIPT/Day16/task3.html" target="_blank">D16-T3</a>
-<a class="task-chip" href="JAVASCRIPT/Day16/task4.html" target="_blank">D16-T4</a>
-<a class="task-chip" href="JAVASCRIPT/Day17/task2.html" target="_blank">D17-T1</a>
-<a class="task-chip" href="JAVASCRIPT/Day17/task3.html" target="_blank">D17-T2</a>
-<a class="task-chip" href="JAVASCRIPT/Day17/task4.html" target="_blank">D17-T3</a>
-<a class="task-chip" href="JAVASCRIPT/Day17/task5.html" target="_blank">D17-T4</a>
-<a class="task-chip" href="JAVASCRIPT/Day18/register.html" target="_blank">D18-Register</a>
-<a class="task-chip" href="JAVASCRIPT/Day19/task1.html" target="_blank">D19-T1</a>
-<a class="task-chip" href="JAVASCRIPT/Day19/task2.html" target="_blank">D19-T2&amp;3</a>
-<a class="task-chip" href="JAVASCRIPT/Day19/task3.html" target="_blank">D19-T4</a>
-<a class="task-chip" href="JAVASCRIPT/Day19/task4.html" target="_blank">D19-T5</a>
-</div>
-</div>
-</div>
-<div class="coming-soon-banner">✦ More JavaScript Milestones Incoming ✦</div>
-</article>
-<!-- ──────────── 4. TAILWIND CARD ──────────── -->
-<article class="tech-card" data-tech="tailwind" style="order: 4;">
-<div class="tech-header header-tailwind">
-<div class="tech-header-left">
-<div class="tech-icon-wrapper spin">🌊</div>
-<div>
-<h2 class="tech-title">Tailwind CSS</h2>
-</div>
-</div>
-<span class="tech-task-pill">8 tasks</span>
-</div>
-<div class="day-groups-container">
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-cyan"><span class="dot-glow"></span>Day 1</span>
-<span class="day-count-badge">5 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="TAILWIND/Day1/task1.html" target="_blank">task1<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="TAILWIND/Day1/task2.html" target="_blank">task2<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="TAILWIND/Day1/task3.html" target="_blank">task3<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="TAILWIND/Day1/task4.html" target="_blank">task4<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="TAILWIND/Day1/task5.html" target="_blank">task5<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-cyan"><span class="dot-glow"></span>Day 2</span>
-<span class="day-count-badge">2 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="TAILWIND/Day2/index.html" target="_blank">task1<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-</div>
-<div class="coming-soon-banner">✦ Additional Tailwind components planned ✦</div>
-</article>
-<!-- ──────────── 5. BOOTSTRAP CARD ──────────── -->
-<article class="tech-card" data-tech="bootstrap" style="order: 3;">
-<div class="tech-header header-bootstrap">
-<div class="tech-header-left">
-<div class="tech-icon-wrapper spin">📱</div>
-<div>
-<h2 class="tech-title">Bootstrap</h2>
-</div>
-</div>
-<span class="tech-task-pill">4 tasks</span>
-</div>
-<div class="day-groups-container">
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-purple"><span class="dot-glow"></span>Day 2</span>
-<span class="day-count-badge">3 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="BOOTSTRAP/Day2/task1.html" target="_blank">task1<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="BOOTSTRAP/Day2/task2.html" target="_blank">task2<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="BOOTSTRAP/Day2/task3.html" target="_blank">task3<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-purple"><span class="dot-glow"></span>Day 3</span>
-<span class="day-count-badge">1 task</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="BOOTSTRAP/Day3/index.html" target="_blank">task1<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-</div>
-<div class="coming-soon-banner">✦ More Bootstrap utilities coming soon ✦</div>
-</article>
-<!-- ──────────── 6. REACT CARD ──────────── -->
-<article class="tech-card" data-tech="react" style="order: 6;">
-<div class="tech-header header-react">
-<div class="tech-header-left">
-<div class="tech-icon-wrapper spin">⚛️</div>
-<div>
-<h2 class="tech-title">React</h2>
-</div>
-</div>
-<span class="tech-task-pill">4 tasks</span>
-</div>
-<div class="day-groups-container">
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-cyan"><span class="dot-glow"></span>Day 1</span>
-<span class="day-count-badge">1 task</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="REACT/Day1/react.txt" target="_blank">Task1 (Foundations)<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-<div class="day-block">
-<div class="day-block-header">
-<span class="day-tag theme-cyan"><span class="dot-glow"></span>Day 2</span>
-<span class="day-count-badge">2 tasks</span>
-</div>
-<div class="task-chips">
-<a class="task-chip" href="REACT/Day2/reactvite/src/App.jsx" target="_blank">Vite App.jsx<span class="arrow-icon">↗</span></a>
-<a class="task-chip" href="REACT/Day2/reactvite/src/Card.jsx" target="_blank">Vite App.jsx<span class="arrow-icon">↗</span></a>
-</div>
-</div>
-</div>
-<div class="coming-soon-banner">✦ Next.js &amp; Full-stack React Projects in Pipeline ✦</div>
-</article>
-</main>
-<!-- ═══════ FOOTER ═══════ -->
-<footer class="hub-footer">
-<div class="footer-tag">⚡ Ultra-Modern · High Performance · Responsive Architecture</div>
-<p class="">Designed for seamless review and developer portfolio showcase</p>
-</footer>
-</div>
-<!-- ═══════ INTERACTIVITY: SEARCH & CATEGORY FILTER ═══════ -->
-<script>
+                            </a>
+                        </div>
+                        <div class="task-chips" style="margin-bottom: 0.4rem;">
+                            <a class="task-chip" href="JAVASCRIPT/Day10/Tasks/task1.html" target="_blank">Task1</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day10/Tasks/task2.html" target="_blank">Task2</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day10/Tasks/task3.html" target="_blank">Task3</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day10/Tasks/task4.html" target="_blank">Task4</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day10/Tasks/task5.html" target="_blank">Task5</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day10/Tasks/task6.html" target="_blank">Task6</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day10/Tasks/task7.html" target="_blank">Task7</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day10/Tasks/task8.html" target="_blank">Task8</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day10/Tasks/task9.html" target="_blank">Task9</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day10/Tasks/task10.html" target="_blank">Task10</a>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="JAVASCRIPT/Day10/Logical-Tasks/arr-obj.html"
+                                target="_blank">Logical-1</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day10/Logical-Tasks/arrats.html"
+                                target="_blank">Logical-2</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day10/Logical-Tasks/factorial.html"
+                                target="_blank">Logical-3</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day10/Logical-Tasks/highest.html"
+                                target="_blank">Logical-4</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day10/Logical-Tasks/largest.html"
+                                target="_blank">Logical-5</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day10/Logical-Tasks/odd-even.html"
+                                target="_blank">Logical-6</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day10/Logical-Tasks/palindrome.html"
+                                target="_blank">Logical-7</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day10/Logical-Tasks/reverse.html"
+                                target="_blank">Logical-8</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day10/Logical-Tasks/sum-of-numbers.html"
+                                target="_blank">Logical-9</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day10/Logical-Tasks/vowels.html"
+                                target="_blank">Logical-10</a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-test"><span class="dot-glow"></span>🧪 JS Comprehensive
+                                Test</span>
+                            <span class="day-count-badge">14 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip test-chip" href="JAVASCRIPT/Test/one.html" target="_blank">Q1</a>
+                            <a class="task-chip test-chip" href="JAVASCRIPT/Test/two.html" target="_blank">Q2</a>
+                            <a class="task-chip test-chip" href="JAVASCRIPT/Test/three.html" target="_blank">Q3</a>
+                            <a class="task-chip test-chip" href="JAVASCRIPT/Test/four.html" target="_blank">Q4</a>
+                            <a class="task-chip test-chip" href="JAVASCRIPT/Test/five.html" target="_blank">Q5</a>
+                            <a class="task-chip test-chip" href="JAVASCRIPT/Test/six.html" target="_blank">Q6</a>
+                            <a class="task-chip test-chip" href="JAVASCRIPT/Test/seven.html" target="_blank">Q7</a>
+                            <a class="task-chip test-chip" href="JAVASCRIPT/Test/eigth.html" target="_blank">Q8</a>
+                            <a class="task-chip test-chip" href="JAVASCRIPT/Test/nine.html" target="_blank">Q9</a>
+                            <a class="task-chip test-chip" href="JAVASCRIPT/Test/ten.html" target="_blank">Q10</a>
+                            <a class="task-chip test-chip" href="JAVASCRIPT/Test/eleven.html" target="_blank">Q11</a>
+                            <a class="task-chip test-chip" href="JAVASCRIPT/Test/twelve.html" target="_blank">Q12</a>
+                            <a class="task-chip test-chip" href="JAVASCRIPT/Test/thirteen.html" target="_blank">Q13</a>
+                            <a class="task-chip test-chip" href="JAVASCRIPT/Test/fourteen.html" target="_blank">Q14</a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-amber"><span class="dot-glow"></span>Day 11–13</span>
+                            <span class="day-count-badge">13 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="JAVASCRIPT/Day11/task1.html" target="_blank">D11-T1</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day11/task2.html" target="_blank">D11-T2</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day11/task3.html" target="_blank">D11-T3</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day11/task4.html" target="_blank">D11-T4</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day11/task5.html" target="_blank">D11-T5</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day11/task6.html" target="_blank">D11-T6</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day12/task1.html" target="_blank">D12-T1</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day12/task2.html" target="_blank">D12-T2</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day12/task3.html" target="_blank">D12-T3</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day12/task4.html" target="_blank">D12-T4</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day12/task5.html" target="_blank">D12-T5</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day13/index.html" target="_blank">D13 Tasks
+                                1&amp;2</a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-amber"><span class="dot-glow"></span>Day 15–19</span>
+                            <span class="day-count-badge">17 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="JAVASCRIPT/Day15/task1.html" target="_blank">D15-T1</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day15/task2.html" target="_blank">D15-T2</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day15/task3.html" target="_blank">D15-T3</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day16/task1.html" target="_blank">D16-T1</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day16/task2.html" target="_blank">D16-T2</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day16/task3.html" target="_blank">D16-T3</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day16/task4.html" target="_blank">D16-T4</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day17/task2.html" target="_blank">D17-T1</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day17/task3.html" target="_blank">D17-T2</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day17/task4.html" target="_blank">D17-T3</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day17/task5.html" target="_blank">D17-T4</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day18/register.html" target="_blank">D18-Register</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day19/task1.html" target="_blank">D19-T1</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day19/task2.html" target="_blank">D19-T2&amp;3</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day19/task3.html" target="_blank">D19-T4</a>
+                            <a class="task-chip" href="JAVASCRIPT/Day19/task4.html" target="_blank">D19-T5</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="coming-soon-banner">✦ More JavaScript Milestones Incoming ✦</div>
+            </article>
+
+            <!-- TAILWIND CARD -->
+            <article class="tech-card" data-tech="tailwind" style="order: 4;">
+                <div class="tech-header header-tailwind">
+                    <div class="tech-header-left">
+                        <div class="tech-icon-wrapper">🌊</div>
+                        <div>
+                            <h2 class="tech-title">Tailwind CSS</h2>
+                        </div>
+                    </div>
+                    <span class="tech-task-pill">8 tasks</span>
+                </div>
+                <div class="day-groups-container">
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-cyan"><span class="dot-glow"></span>Day 1</span>
+                            <span class="day-count-badge">5 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="TAILWIND/Day1/task1.html" target="_blank">task1<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="TAILWIND/Day1/task2.html" target="_blank">task2<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="TAILWIND/Day1/task3.html" target="_blank">task3<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="TAILWIND/Day1/task4.html" target="_blank">task4<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="TAILWIND/Day1/task5.html" target="_blank">task5<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-cyan"><span class="dot-glow"></span>Day 2</span>
+                            <span class="day-count-badge">2 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="TAILWIND/Day2/index.html" target="_blank">task1<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="coming-soon-banner">✦ Additional Tailwind components planned ✦</div>
+            </article>
+
+            <!-- BOOTSTRAP CARD -->
+            <article class="tech-card" data-tech="bootstrap" style="order: 3;">
+                <div class="tech-header header-bootstrap">
+                    <div class="tech-header-left">
+                        <div class="tech-icon-wrapper">📱</div>
+                        <div>
+                            <h2 class="tech-title">Bootstrap</h2>
+                        </div>
+                    </div>
+                    <span class="tech-task-pill">4 tasks</span>
+                </div>
+                <div class="day-groups-container">
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-purple"><span class="dot-glow"></span>Day 2</span>
+                            <span class="day-count-badge">3 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="BOOTSTRAP/Day2/task1.html" target="_blank">task1<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="BOOTSTRAP/Day2/task2.html" target="_blank">task2<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="BOOTSTRAP/Day2/task3.html" target="_blank">task3<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-purple"><span class="dot-glow"></span>Day 3</span>
+                            <span class="day-count-badge">1 task</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="BOOTSTRAP/Day3/index.html" target="_blank">task1<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="coming-soon-banner">✦ More Bootstrap utilities coming soon ✦</div>
+            </article>
+
+            <!-- REACT CARD -->
+            <article class="tech-card" data-tech="react" style="order: 6;">
+                <div class="tech-header header-react">
+                    <div class="tech-header-left">
+                        <div class="tech-icon-wrapper">⚛️</div>
+                        <div>
+                            <h2 class="tech-title">React</h2>
+                        </div>
+                    </div>
+                    <span class="tech-task-pill">4 tasks</span>
+                </div>
+                <div class="day-groups-container">
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-cyan"><span class="dot-glow"></span>Day 1</span>
+                            <span class="day-count-badge">1 task</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="REACT/Day1/react.txt" target="_blank">Task1 (Foundations)<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-cyan"><span class="dot-glow"></span>Day 2</span>
+                            <span class="day-count-badge">2 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="REACT/Day2/reactvite/src/App.jsx" target="_blank">Vite
+                                App.jsx<span class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="REACT/Day2/reactvite/src/Card.jsx" target="_blank">Vite
+                                Card.jsx<span class="arrow-icon">↗</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="coming-soon-banner">✦ Next.js &amp; Full-stack React Projects in Pipeline ✦</div>
+            </article>
+        </main>
+
+        <!-- ═══════ FOOTER ═══════ -->
+        <footer class="hub-footer">
+            <div class="footer-tag">⚡ Ultra-Modern · High Performance · Responsive Architecture</div>
+            <p>Designed for seamless review and developer portfolio showcase</p>
+        </footer>
+    </div>
+
+    <!-- ═══════ INTERACTIVITY ═══════ -->
+    <script>
+        // Filter function
         function filterTech(tech, btnElement) {
-            // Update button styles
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             btnElement.classList.add('active');
 
-            // Filter cards
             const cards = document.querySelectorAll('.tech-card');
             cards.forEach(card => {
                 if (tech === 'all' || card.dataset.tech === tech) {
                     card.style.display = '';
+                    card.style.animation = 'none';
+                    card.offsetHeight; // reflow
+                    card.style.animation = 'fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
                 } else {
                     card.style.display = 'none';
                 }
             });
         }
 
+        // Search function
         function handleSearch(query) {
             const lowerQuery = query.toLowerCase().trim();
             const cards = document.querySelectorAll('.tech-card');
@@ -1366,7 +2058,6 @@
                     }
                 });
 
-                // Also check card header
                 const cardHeader = card.querySelector('.tech-title').innerText.toLowerCase();
                 if (cardHeader.includes(lowerQuery) || cardHasMatch) {
                     card.style.display = '';
@@ -1375,10 +2066,57 @@
                 }
             });
         }
+
+        // Mouse-tracking spotlight for cards, stat-cards, and filter buttons
+        function attachPointerTracking(selector, varX = '--mx', varY = '--my') {
+            document.querySelectorAll(selector).forEach(el => {
+                el.addEventListener('pointermove', (e) => {
+                    const rect = el.getBoundingClientRect();
+                    const x = ((e.clientX - rect.left) / rect.width) * 100;
+                    const y = ((e.clientY - rect.top) / rect.height) * 100;
+                    el.style.setProperty(varX, x + '%');
+                    el.style.setProperty(varY, y + '%');
+                });
+            });
+        }
+
+        attachPointerTracking('.tech-card');
+        attachPointerTracking('.stat-card');
+        attachPointerTracking('.filter-btn');
+
+        // Card 3D tilt effect on mousemove
+        document.querySelectorAll('.tech-card').forEach(card => {
+            card.addEventListener('pointermove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                const tiltX = y * -4;   // rotateX
+                const tiltY = x * 4;    // rotateY
+                card.style.transform = `translateY(-8px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+            });
+            card.addEventListener('pointerleave', () => {
+                card.style.transform = '';
+            });
+        });
+
+        // Entrance animation for cards
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from { opacity: 0; transform: translateY(24px); }
+                to   { opacity: 1; transform: translateY(0); }
+            }
+            .tech-card { animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+            .tech-card:nth-child(1) { animation-delay: 0.05s; }
+            .tech-card:nth-child(2) { animation-delay: 0.12s; }
+            .tech-card:nth-child(3) { animation-delay: 0.19s; }
+            .tech-card:nth-child(4) { animation-delay: 0.26s; }
+            .tech-card:nth-child(5) { animation-delay: 0.33s; }
+            .tech-card:nth-child(6) { animation-delay: 0.40s; }
+        `;
+        document.head.appendChild(style);
     </script>
 
+</body>
 
-
-
-
-</body></html>
+</html>
