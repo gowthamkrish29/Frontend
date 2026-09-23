@@ -1,0 +1,23 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.details{
+    background-color: cornflowerblue;
+    color: black;
+    margin: 20px;
+    padding: 30px;
+}
+
+.details h2{
+    padding-bottom: 10px;
+}
+
+.details p{
+    padding-bottom: 10px;
+}
