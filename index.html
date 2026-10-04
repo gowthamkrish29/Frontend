@@ -649,13 +649,13 @@
         }
 
         .tech-card:hover .tech-icon-wrapper {
-    /* transform is controlled by the spin animation — use glow instead */
-    box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.5),
-        0 0 32px -4px rgba(255, 255, 255, 0.65),
-        0 0 60px -10px rgba(56, 189, 248, 0.5);
-    filter: brightness(1.15);
-}
+            /* transform is controlled by the spin animation — use glow instead */
+            box-shadow:
+                0 8px 24px rgba(0, 0, 0, 0.5),
+                0 0 32px -4px rgba(255, 255, 255, 0.65),
+                0 0 60px -10px rgba(56, 189, 248, 0.5);
+            filter: brightness(1.15);
+        }
 
         .tech-title {
             font-size: 1.25rem;
@@ -741,6 +741,15 @@
 
         .header-react .tech-icon-wrapper {
             background: #0891b2;
+        }
+
+        /* ── NEW: SQL Header ── */
+        .header-sql {
+            background: linear-gradient(135deg, rgba(0, 117, 143, 0.32), rgba(0, 117, 143, 0.05));
+        }
+
+        .header-sql .tech-icon-wrapper {
+            background: #00758f;
         }
 
         /* ── Day Groups Container ── */
@@ -1155,7 +1164,6 @@
 
 
 
-
         /* ────────────── RESPONSIVE ────────────── */
         @media (max-width: 980px) {
             .tech-grid {
@@ -1233,11 +1241,11 @@
             </p>
             <div class="stats-grid">
                 <div class="stat-card">
-                    <span class="stat-value" id="stat-total">185+</span>
+                    <span class="stat-value" id="stat-total">225+</span>
                     <span class="stat-label">Total Tasks</span>
                 </div>
                 <div class="stat-card">
-                    <span class="stat-value">6</span>
+                    <span class="stat-value">7</span>
                     <span class="stat-label">Technologies</span>
                 </div>
                 <div class="stat-card">
@@ -1262,13 +1270,14 @@
                     placeholder="Search tasks, days, or exercises..." type="text">
             </div>
             <div class="filter-group">
-                <button class="filter-btn active" onclick="filterTech('all', this)">All (6)</button>
+                <button class="filter-btn active" onclick="filterTech('all', this)">All (7)</button>
                 <button class="filter-btn" onclick="filterTech('html', this)">HTML</button>
                 <button class="filter-btn" onclick="filterTech('css', this)">CSS</button>
                 <button class="filter-btn" onclick="filterTech('javascript', this)">JavaScript</button>
                 <button class="filter-btn" onclick="filterTech('tailwind', this)">Tailwind</button>
                 <button class="filter-btn" onclick="filterTech('bootstrap', this)">Bootstrap</button>
                 <button class="filter-btn" onclick="filterTech('react', this)">React</button>
+                <button class="filter-btn" onclick="filterTech('sql', this)">SQL</button>
             </div>
         </section>
 
@@ -2010,6 +2019,173 @@
                 </div>
                 <div class="coming-soon-banner">✦ Next.js &amp; Full-stack React Projects in Pipeline ✦</div>
             </article>
+
+            <!-- ═══════════════════════════════════════════════════════ -->
+            <!-- SQL CARD (NEW — placed directly below React)            -->
+            <!-- ═══════════════════════════════════════════════════════ -->
+            <article class="tech-card" data-tech="sql" style="order: 7;">
+                <div class="tech-header header-sql">
+                    <div class="tech-header-left">
+                        <div class="tech-icon-wrapper">🗄️</div>
+                        <div>
+                            <h2 class="tech-title">SQL</h2>
+                        </div>
+                    </div>
+                    <span class="tech-task-pill">38 tasks</span>
+                </div>
+                <div class="day-groups-container">
+
+                    <!-- SQL Day 1 -->
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-blue"><span class="dot-glow"></span>Day 1 · Basics</span>
+                            <span class="day-count-badge">5 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="../SQL/" target="_blank">create-database<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="SQL/Day1/create-table.sql" target="_blank">create-table<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="SQL/Day1/insert-data.sql" target="_blank">insert-data<span
+                                    class="arrow-icon">↗</span></a>
+                            <
+                        </div>
+                    </div>
+
+                    <!-- SQL Day 2 -->
+                    <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-teal"><span class="dot-glow"></span>Day 2 · Filtering</span>
+                            <span class="day-count-badge">5 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="SQL/Day2/where-clause.sql" target="_blank">where-clause<span
+                                    class="arrow-icon">↗</span></a>
+                           
+                        </div>
+                    </div>
+
+                    <!-- SQL Day 3 -->
+                    <!-- <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-emerald"><span class="dot-glow"></span>Day 3 · Joins</span>
+                            <span class="day-count-badge">5 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="SQL/Day3/inner-join.sql" target="_blank">inner-join<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="SQL/Day3/left-join.sql" target="_blank">left-join<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="SQL/Day3/right-join.sql" target="_blank">right-join<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="SQL/Day3/self-join.sql" target="_blank">self-join<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="SQL/Day3/multi-table-join.sql"
+                                target="_blank">multi-table-join<span class="arrow-icon">↗</span></a>
+                        </div>
+                    </div> -->
+
+                    <!-- SQL Day 4 -->
+                    <!-- <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-purple"><span class="dot-glow"></span>Day 4 · Aggregation</span>
+                            <span class="day-count-badge">5 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="SQL/Day4/count-sum-avg.sql" target="_blank">count-sum-avg<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="SQL/Day4/group-by.sql" target="_blank">group-by<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="SQL/Day4/having.sql" target="_blank">having<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="SQL/Day4/min-max.sql" target="_blank">min-max<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="SQL/Day4/aggregate-report.sql"
+                                target="_blank">aggregate-report<span class="arrow-icon">↗</span></a>
+                        </div>
+                    </div> -->
+
+                    <!-- SQL Day 5 -->
+                    <!-- <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-amber"><span class="dot-glow"></span>Day 5 · Subqueries &amp;
+                                Views</span>
+                            <span class="day-count-badge">4 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="SQL/Day5/subquery.sql" target="_blank">subquery<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="SQL/Day5/correlated-subquery.sql"
+                                target="_blank">correlated-subquery<span class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="SQL/Day5/views.sql" target="_blank">views<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="SQL/Day5/cte-with.sql" target="_blank">cte-with<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div> -->
+
+                    <!-- SQL Day 6 -->
+                    <!-- <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-pink"><span class="dot-glow"></span>Day 6 · Advanced</span>
+                            <span class="day-count-badge">4 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="SQL/Day6/stored-procedure.sql"
+                                target="_blank">stored-procedure<span class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="SQL/Day6/functions.sql" target="_blank">functions<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="SQL/Day6/triggers.sql" target="_blank">triggers<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="SQL/Day6/transactions.sql" target="_blank">transactions<span
+                                    class="arrow-icon">↗</span></a>
+                        </div>
+                    </div> -->
+
+                    <!-- SQL Day 7 -->
+                    <!-- <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-cyan"><span class="dot-glow"></span>Day 7 · Design</span>
+                            <span class="day-count-badge">5 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip" href="SQL/Day7/constraints.sql" target="_blank">constraints<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="SQL/Day7/indexes.sql" target="_blank">indexes<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="SQL/Day7/normalization.sql" target="_blank">normalization<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="SQL/Day7/alter-table.sql" target="_blank">alter-table<span
+                                    class="arrow-icon">↗</span></a>
+                            <a class="task-chip" href="SQL/Day7/database-design.sql"
+                                target="_blank">database-design<span class="arrow-icon">↗</span></a>
+                        </div>
+                    </div> -->
+
+                    <!-- SQL Assessment -->
+                    <!-- <div class="day-block">
+                        <div class="day-block-header">
+                            <span class="day-tag theme-test"><span class="dot-glow"></span>🧪 SQL Assessment</span>
+                            <span class="day-count-badge">5 tasks</span>
+                        </div>
+                        <div class="task-chips">
+                            <a class="task-chip test-chip" href="SQL/Test/q1-employee-queries.sql"
+                                target="_blank">Q1</a>
+                            <a class="task-chip test-chip" href="SQL/Test/q2-student-report.sql"
+                                target="_blank">Q2</a>
+                            <a class="task-chip test-chip" href="SQL/Test/q3-ecommerce-join.sql"
+                                target="_blank">Q3</a>
+                            <a class="task-chip test-chip" href="SQL/Test/q4-sales-analytics.sql"
+                                target="_blank">Q4</a>
+                            <a class="task-chip test-chip" href="SQL/Test/q5-bank-transactions.sql"
+                                target="_blank">Q5</a>
+                        </div>
+                    </div> -->
+
+                </div>
+                <div class="coming-soon-banner">✦ Indexing, Query Optimization &amp; NoSQL Bridge Incoming ✦</div>
+            </article>
+
         </main>
 
         <!-- ═══════ FOOTER ═══════ -->
@@ -2113,6 +2289,7 @@
             .tech-card:nth-child(4) { animation-delay: 0.26s; }
             .tech-card:nth-child(5) { animation-delay: 0.33s; }
             .tech-card:nth-child(6) { animation-delay: 0.40s; }
+            .tech-card:nth-child(7) { animation-delay: 0.47s; }
         `;
         document.head.appendChild(style);
     </script>
