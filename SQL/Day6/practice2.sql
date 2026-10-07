@@ -125,4 +125,3 @@ select name , salary , department from emp where salary > (select avg(salary) fr
 
 select * from emp where department in("IT" , "HR");
 
-select 
